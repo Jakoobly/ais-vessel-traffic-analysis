@@ -2,7 +2,7 @@ library(shiny)
 library(dplyr)
 library(ggplot2)
 
-DATA_FILE <- "data/task7_shiny_traffic_density.csv"
+DATA_FILE <- "task7_shiny_traffic_density.csv"
 
 if (!file.exists(DATA_FILE)) {
   stop(
