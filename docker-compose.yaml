@@ -18,7 +18,7 @@ services:
         ports:
             - "3838:3838"
         volumes:
-            - # Here you need to insert something
+            - ./shiny:/srv/shiny-server:rw
             - ./assets/logs:/var/log/shiny-server:rw
         environment:
             # not strictly required—Shiny server listens on 3838 by default
