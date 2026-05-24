@@ -49,8 +49,9 @@ german_rivers <- readr::read_rds(input_rivers)
 calculate_river_density <- function(selected_river, bin_width_km = 10) {
   river_geometry <- german_rivers |>
     filter(river_name == selected_river) |>
-    summarise(geometry = st_union(geometry), .groups = "drop") |>
     st_transform(3035) |>
+    summarise(geometry = st_combine(geometry), .groups = "drop") |>
+    st_cast("MULTILINESTRING", warn = FALSE) |>
     st_line_merge() |>
     get_main_line()
 
