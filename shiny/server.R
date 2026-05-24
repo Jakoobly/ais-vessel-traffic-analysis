@@ -1,32 +1,33 @@
 server <- function(input, output, session) {
-  
-  # -------------------------------------------------------
-  # Fetch data when the update button is clicked
-  # TODO: add the required input IDs to req()
-  # TODO: pass the correct arguments to fetch_traffic()
-  # -------------------------------------------------------
   traffic_data <- eventReactive(input$update, {
-    req()
-    fetch_traffic()
+    req(input$river, input$ship_types)
+    filter_traffic(
+      data = traffic_density_data,
+      river = input$river,
+      ship_types = input$ship_types
+    )
   })
-  
-  # -------------------------------------------------------
-  # Render the plot
-  # TODO: pass the correct arguments to plot_traffic()
-  # -------------------------------------------------------
+
   output$traffic_plot <- renderPlot({
     req(traffic_data())
-    plot_traffic()
+    validate(need(nrow(traffic_data()) > 0, "No records found for the selected filters."))
+    plot_traffic_density(
+      data = traffic_data(),
+      river = input$river,
+      ship_types = input$ship_types
+    )
   })
-  
-  # -------------------------------------------------------
-  # Show a message when no data is returned
-  # -------------------------------------------------------
+
   output$traffic_status <- renderText({
     req(traffic_data())
     if (nrow(traffic_data()) == 0) {
-      "No records found for the selected filters. Try adjusting your selection."
+      "No records found for the selected filters. Try another river or ship type."
+    } else {
+      paste0(
+        "Displayed ", sum(traffic_data()$n_records),
+        " AIS records across ", nrow(traffic_data()),
+        " distance bins."
+      )
     }
   })
-  
 }
