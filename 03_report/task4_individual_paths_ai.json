@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "created_at": "2026-05-23 23:49:03.975719",
+    "base_url": "https://aidaho-edu.uni-hohenheim.de/aisdb"
+  },
+  "mmsi_2579999": {
+    "summary": [
+      {
+        "n_observations": 10828,
+        "start_time": "2024-01-24 00:00:22",
+        "end_time": "2024-01-24 23:59:56",
+        "duration_hours": 23.9928,
+        "min_latitude": -38.4497,
+        "max_latitude": 65.2175,
+        "min_longitude": -58.4211,
+        "max_longitude": 148.3092,
+        "n_collection_types": 2
+      }
+    ],
+    "interpretation": "MMSI 2579999 should be treated with caution. Online vessel-tracking sources list it as a navigation aid or base station rather than a normal ship, and an AIS base-station manual mentions 2579999 as a default MMSI that should be changed after setup. The generated map shows geographically inconsistent positions and implausible jumps across continents. Therefore, repeated positions for this identifier likely reflect a station, navigation aid, default configuration, or test/setup artefact instead of a single moving vessel."
+  },
+  "mmsi_563040400": {
+    "summary": [
+      {
+        "n_observations": 4313,
+        "start_time": "2021-01-01 06:35:09",
+        "end_time": "2021-01-05 05:53:42",
+        "duration_hours": 95.3092,
+        "min_latitude": 43.993,
+        "max_latitude": 44.1474,
+        "min_longitude": 28.6557,
+        "max_longitude": 28.8432,
+        "median_speed_kn": 0,
+        "max_speed_kn": 11.7,
+        "n_collection_types": 2
+      }
+    ],
+    "interpretation": "The AIS observations of MMSI 563040400 form a coherent and geographically plausible vessel track near the port area of Constanța in the Black Sea. The vessel follows a connected route with denser observations and lower speeds near the harbour area, suggesting manoeuvring or waiting behaviour. Movement further offshore appears more continuous and faster, which is consistent with normal vessel navigation."
+  },
+  "mmsi_211430830": {
+    "time_window": "2021-01-17 00:00:00 UTC to 2021-01-20 00:00:00 UTC",
+    "summary": [
+      {
+        "n_observations": 574,
+        "start_time": "2021-01-18 03:34:46",
+        "end_time": "2021-01-19 23:57:35",
+        "duration_hours": 44.3803,
+        "min_latitude": 47.7817,
+        "max_latitude": 48.3534,
+        "min_longitude": 14.3494,
+        "max_longitude": 17.6732,
+        "median_speed_kn": 3.6,
+        "max_speed_kn": 7.4,
+        "n_collection_types": 2
+      }
+    ],
+    "lock_events": [
+      {
+        "lock_id": 1,
+        "lock_group": 1,
+        "start_time": "2021-01-18 05:21:46",
+        "end_time": "2021-01-18 05:46:15",
+        "duration_minutes": 24.4833,
+        "latitude": 47.8826,
+        "longitude": 17.5411,
+        "n_observations": 6,
+        "median_speed_kn": 0.1
+      },
+      {
+        "lock_id": 2,
+        "lock_group": 2,
+        "start_time": "2021-01-18 19:20:02",
+        "end_time": "2021-01-18 19:41:42",
+        "duration_minutes": 21.6667,
+        "latitude": 48.1762,
+        "longitude": 16.4789,
+        "n_observations": 8,
+        "median_speed_kn": 0.1
+      },
+      {
+        "lock_id": 3,
+        "lock_group": 3,
+        "start_time": "2021-01-18 20:55:00",
+        "end_time": "2021-01-18 21:18:01",
+        "duration_minutes": 23.0167,
+        "latitude": 48.2437,
+        "longitude": 16.3857,
+        "n_observations": 12,
+        "median_speed_kn": 0.05
+      },
+      {
+        "lock_id": 4,
+        "lock_group": 5,
+        "start_time": "2021-01-19 20:45:02",
+        "end_time": "2021-01-19 21:03:12",
+        "duration_minutes": 18.1667,
+        "latitude": 48.2502,
+        "longitude": 14.4317,
+        "n_observations": 7,
+        "median_speed_kn": 0.1
+      },
+      {
+        "lock_id": 5,
+        "lock_group": 7,
+        "start_time": "2021-01-19 21:55:00",
+        "end_time": "2021-01-19 23:57:35",
+        "duration_minutes": 122.5833,
+        "latitude": 48.2781,
+        "longitude": 14.3494,
+        "n_observations": 42,
+        "median_speed_kn": 0.1
+      }
+    ],
+    "ship_lock_ais_pattern": "In AIS data, a ship lock typically appears as a local cluster of observations at nearly the same coordinates with very low speed. The vessel may spend several minutes or longer in the same area while waiting, entering, being raised or lowered, and leaving the lock. Compared with normal cruising segments, the observation density per location is higher and the trajectory shows a pause or bottleneck-like compression around the lock position.",
+    "detection_logic": ["1. Sort all AIS observations by msg_timestamp.", "2. Mark an observation as a potential lock point if speed is below 1 knot.", "3. Start a new lock group if the previous low-speed point is more than 30 minutes away or more than 600 metres away.", "4. Summarise each consecutive low-speed group by start time, end time, duration, mean latitude/longitude and number of observations.", "5. Keep only groups with at least 3 observations and at least 8 minutes duration.", "6. Interpret the remaining groups as potential ship-lock passages."],
+    "thresholds": {
+      "speed_threshold_kn": 1,
+      "max_time_gap_min": 30,
+      "max_step_distance_m": 600,
+      "min_duration_min": 8,
+      "min_observations": 3
+    },
+    "limitations": "The rule-based detector is transparent but imperfect. It may confuse anchoring, waiting, congestion, port stops or missing GPS movement with lock passages. It may miss locks if AIS messages are sparse, if the vessel moves slowly for less than the minimum duration, or if position noise spreads points beyond the distance threshold. Improvements could use known lock coordinates, river network constraints, heading changes, acceleration/deceleration patterns, or clustering methods such as DBSCAN on latitude, longitude, speed and time.",
+    "unsupervised_extension": "An unsupervised alternative could cluster low-speed AIS points in space and time without labelled training data. For example, DBSCAN or HDBSCAN could identify dense clusters of stationary points, and clusters located along the route with plausible duration could be interpreted as candidate lock events."
+  },
+  "outputs": {
+    "mmsi_2579999_csv": "01_data/task4_mmsi_2579999.csv",
+    "mmsi_563040400_csv": "01_data/task4_mmsi_563040400.csv",
+    "mmsi_211430830_csv": "01_data/task4_mmsi_211430830.csv",
+    "lock_events_csv": "01_data/task4_detected_lock_events_211430830.csv",
+    "maps": ["03_report/graphs/task4_mmsi_2579999.html", "03_report/graphs/task4_mmsi_563040400.html", "03_report/graphs/task4_mmsi_211430830_locks.html"]
+  }
+}

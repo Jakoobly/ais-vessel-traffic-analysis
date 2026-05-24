@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+    nginx:
+        image: nginx:1.25-alpine
+        ports:
+            - "80:80"
+        volumes:
+            - ./assets/site-content:/usr/share/nginx/html:rw
+            - ./assets/config:/etc/nginx/conf.d:rw
+    shiny:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: aidaho-edu.uni-hohenheim.de/jbleher/shiny_thas2025:0.1
+        container_name: ais_shiny
+        restart: unless-stopped
+        ports:
+            - "3838:3838"
+        volumes:
+            - # Here you need to insert something
+            - ./assets/logs:/var/log/shiny-server:rw
+        environment:
+            # not strictly required—Shiny server listens on 3838 by default
+            - SHINY_PORT=3838
+

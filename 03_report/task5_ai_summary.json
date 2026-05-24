@@ -1,0 +1,438 @@
+{
+  "metadata": {
+    "created_at": "2026-05-24 14:50:23.750397",
+    "api_base_url": "https://aidaho-edu.uni-hohenheim.de/aisdb/",
+    "analysis_date": "2022-04-23",
+    "h3_resolution": 7,
+    "river_buffer_m": 1500,
+    "tie_break_rule": "If an AIS point matches more than one river H3 cell, assign the nearest original river geometry.",
+    "buffer_rationale": "1500 m buffer used because rivers are represented as centre lines and AIS positions may deviate from the exact river geometry due to GPS uncertainty and channel width."
+  },
+  "n_ais_records": 497990,
+  "n_rivers_used": 9,
+  "major_rivers_used": ["Donau", "Elbe", "Ems", "Main", "Mosel", "Rhine", "Weser"],
+  "river_share": [
+    {
+      "location_group": "On selected German river",
+      "n_records": 258110,
+      "percentage": 51.8304
+    },
+    {
+      "location_group": "Elsewhere",
+      "n_records": 239880,
+      "percentage": 48.1696
+    }
+  ],
+  "river_summary": [
+    {
+      "river_name": "Rhine",
+      "n_records": 117007
+    },
+    {
+      "river_name": "Elbe",
+      "n_records": 95019
+    },
+    {
+      "river_name": "Weser",
+      "n_records": 32932
+    },
+    {
+      "river_name": "Main",
+      "n_records": 5424
+    },
+    {
+      "river_name": "Donau",
+      "n_records": 3526
+    },
+    {
+      "river_name": "Mosel",
+      "n_records": 2944
+    },
+    {
+      "river_name": "Ems",
+      "n_records": 1258
+    }
+  ],
+  "ship_type_distribution": [
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Cargo",
+      "n_records": 76782,
+      "share": 0.3201
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Other",
+      "n_records": 7713,
+      "share": 0.0322
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Passenger Ship",
+      "n_records": 54172,
+      "share": 0.2258
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Special Craft",
+      "n_records": 716,
+      "share": 0.003
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Tanker",
+      "n_records": 18227,
+      "share": 0.076
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Tug",
+      "n_records": 567,
+      "share": 0.0024
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Unknown",
+      "n_records": 81136,
+      "share": 0.3382
+    },
+    {
+      "location_group": "Elsewhere",
+      "ship_type": "Wing In Ground",
+      "n_records": 567,
+      "share": 0.0024
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Cargo",
+      "n_records": 55228,
+      "share": 0.214
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Other",
+      "n_records": 14898,
+      "share": 0.0577
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Passenger Ship",
+      "n_records": 49579,
+      "share": 0.1921
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Special Craft",
+      "n_records": 171,
+      "share": 0.0007
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Tanker",
+      "n_records": 26690,
+      "share": 0.1034
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Unknown",
+      "n_records": 109750,
+      "share": 0.4252
+    },
+    {
+      "location_group": "On selected German river",
+      "ship_type": "Wing In Ground",
+      "n_records": 1794,
+      "share": 0.007
+    }
+  ],
+  "rhine_density": [
+    {
+      "distance_bin_km": 0,
+      "n_records": 999,
+      "bin_width_km": 10,
+      "density_records_per_10km": 999
+    },
+    {
+      "distance_bin_km": 10,
+      "n_records": 1472,
+      "bin_width_km": 10,
+      "density_records_per_10km": 1472
+    },
+    {
+      "distance_bin_km": 30,
+      "n_records": 1022,
+      "bin_width_km": 10,
+      "density_records_per_10km": 1022
+    },
+    {
+      "distance_bin_km": 40,
+      "n_records": 1079,
+      "bin_width_km": 10,
+      "density_records_per_10km": 1079
+    },
+    {
+      "distance_bin_km": 50,
+      "n_records": 2758,
+      "bin_width_km": 10,
+      "density_records_per_10km": 2758
+    },
+    {
+      "distance_bin_km": 60,
+      "n_records": 2069,
+      "bin_width_km": 10,
+      "density_records_per_10km": 2069
+    },
+    {
+      "distance_bin_km": 70,
+      "n_records": 10366,
+      "bin_width_km": 10,
+      "density_records_per_10km": 10366
+    },
+    {
+      "distance_bin_km": 80,
+      "n_records": 886,
+      "bin_width_km": 10,
+      "density_records_per_10km": 886
+    },
+    {
+      "distance_bin_km": 90,
+      "n_records": 417,
+      "bin_width_km": 10,
+      "density_records_per_10km": 417
+    },
+    {
+      "distance_bin_km": 100,
+      "n_records": 1282,
+      "bin_width_km": 10,
+      "density_records_per_10km": 1282
+    },
+    {
+      "distance_bin_km": 110,
+      "n_records": 566,
+      "bin_width_km": 10,
+      "density_records_per_10km": 566
+    },
+    {
+      "distance_bin_km": 120,
+      "n_records": 235,
+      "bin_width_km": 10,
+      "density_records_per_10km": 235
+    },
+    {
+      "distance_bin_km": 130,
+      "n_records": 145,
+      "bin_width_km": 10,
+      "density_records_per_10km": 145
+    },
+    {
+      "distance_bin_km": 140,
+      "n_records": 117,
+      "bin_width_km": 10,
+      "density_records_per_10km": 117
+    },
+    {
+      "distance_bin_km": 150,
+      "n_records": 4,
+      "bin_width_km": 10,
+      "density_records_per_10km": 4
+    },
+    {
+      "distance_bin_km": 160,
+      "n_records": 36,
+      "bin_width_km": 10,
+      "density_records_per_10km": 36
+    },
+    {
+      "distance_bin_km": 170,
+      "n_records": 20,
+      "bin_width_km": 10,
+      "density_records_per_10km": 20
+    },
+    {
+      "distance_bin_km": 180,
+      "n_records": 154,
+      "bin_width_km": 10,
+      "density_records_per_10km": 154
+    },
+    {
+      "distance_bin_km": 190,
+      "n_records": 223,
+      "bin_width_km": 10,
+      "density_records_per_10km": 223
+    },
+    {
+      "distance_bin_km": 200,
+      "n_records": 208,
+      "bin_width_km": 10,
+      "density_records_per_10km": 208
+    },
+    {
+      "distance_bin_km": 210,
+      "n_records": 141,
+      "bin_width_km": 10,
+      "density_records_per_10km": 141
+    },
+    {
+      "distance_bin_km": 220,
+      "n_records": 131,
+      "bin_width_km": 10,
+      "density_records_per_10km": 131
+    },
+    {
+      "distance_bin_km": 230,
+      "n_records": 152,
+      "bin_width_km": 10,
+      "density_records_per_10km": 152
+    },
+    {
+      "distance_bin_km": 240,
+      "n_records": 8,
+      "bin_width_km": 10,
+      "density_records_per_10km": 8
+    },
+    {
+      "distance_bin_km": 250,
+      "n_records": 608,
+      "bin_width_km": 10,
+      "density_records_per_10km": 608
+    },
+    {
+      "distance_bin_km": 260,
+      "n_records": 642,
+      "bin_width_km": 10,
+      "density_records_per_10km": 642
+    },
+    {
+      "distance_bin_km": 270,
+      "n_records": 1887,
+      "bin_width_km": 10,
+      "density_records_per_10km": 1887
+    },
+    {
+      "distance_bin_km": 280,
+      "n_records": 2689,
+      "bin_width_km": 10,
+      "density_records_per_10km": 2689
+    },
+    {
+      "distance_bin_km": 290,
+      "n_records": 5129,
+      "bin_width_km": 10,
+      "density_records_per_10km": 5129
+    },
+    {
+      "distance_bin_km": 300,
+      "n_records": 5199,
+      "bin_width_km": 10,
+      "density_records_per_10km": 5199
+    },
+    {
+      "distance_bin_km": 310,
+      "n_records": 4807,
+      "bin_width_km": 10,
+      "density_records_per_10km": 4807
+    },
+    {
+      "distance_bin_km": 320,
+      "n_records": 13844,
+      "bin_width_km": 10,
+      "density_records_per_10km": 13844
+    },
+    {
+      "distance_bin_km": 330,
+      "n_records": 7167,
+      "bin_width_km": 10,
+      "density_records_per_10km": 7167
+    },
+    {
+      "distance_bin_km": 340,
+      "n_records": 5175,
+      "bin_width_km": 10,
+      "density_records_per_10km": 5175
+    },
+    {
+      "distance_bin_km": 350,
+      "n_records": 4119,
+      "bin_width_km": 10,
+      "density_records_per_10km": 4119
+    },
+    {
+      "distance_bin_km": 360,
+      "n_records": 3639,
+      "bin_width_km": 10,
+      "density_records_per_10km": 3639
+    },
+    {
+      "distance_bin_km": 370,
+      "n_records": 8318,
+      "bin_width_km": 10,
+      "density_records_per_10km": 8318
+    },
+    {
+      "distance_bin_km": 380,
+      "n_records": 2049,
+      "bin_width_km": 10,
+      "density_records_per_10km": 2049
+    },
+    {
+      "distance_bin_km": 390,
+      "n_records": 3469,
+      "bin_width_km": 10,
+      "density_records_per_10km": 3469
+    },
+    {
+      "distance_bin_km": 400,
+      "n_records": 3241,
+      "bin_width_km": 10,
+      "density_records_per_10km": 3241
+    },
+    {
+      "distance_bin_km": 410,
+      "n_records": 7196,
+      "bin_width_km": 10,
+      "density_records_per_10km": 7196
+    },
+    {
+      "distance_bin_km": 420,
+      "n_records": 3620,
+      "bin_width_km": 10,
+      "density_records_per_10km": 3620
+    },
+    {
+      "distance_bin_km": 430,
+      "n_records": 751,
+      "bin_width_km": 10,
+      "density_records_per_10km": 751
+    },
+    {
+      "distance_bin_km": 440,
+      "n_records": 994,
+      "bin_width_km": 10,
+      "density_records_per_10km": 994
+    },
+    {
+      "distance_bin_km": 450,
+      "n_records": 223,
+      "bin_width_km": 10,
+      "density_records_per_10km": 223
+    },
+    {
+      "distance_bin_km": 460,
+      "n_records": 303,
+      "bin_width_km": 10,
+      "density_records_per_10km": 303
+    },
+    {
+      "distance_bin_km": 470,
+      "n_records": 795,
+      "bin_width_km": 10,
+      "density_records_per_10km": 795
+    },
+    {
+      "distance_bin_km": 480,
+      "n_records": 6653,
+      "bin_width_km": 10,
+      "density_records_per_10km": 6653
+    }
+  ]
+}

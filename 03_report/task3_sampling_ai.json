@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "created_at": "2026-05-23 21:58:46.104746",
+    "base_url": "https://aidaho-edu.uni-hohenheim.de/aisdb",
+    "sampling_day": "2024-01-24",
+    "seed": 1103276
+  },
+  "interval_sample": {
+    "n_rows": 10000,
+    "n_intervals_selected": 100,
+    "max_records_per_interval": 100,
+    "output": "01_data/sample_intervals.csv"
+  },
+  "stratified_sample": {
+    "n_rows": 10000,
+    "n_strata": 272,
+    "stratification_variables": ["ship_type", "hour"],
+    "allocation_rule": "Proportional allocation with at least 1 observation for non-empty strata; remaining observations distributed by largest fractional remainder.",
+    "random_retrieval_note": "True reproducible random retrieval from the API was not assumed. Hourly API extracts were sampled locally with a fixed seed.",
+    "output": "01_data/sample_stratified.csv"
+  },
+  "cluster_sampling_discussion": {
+    "strategy": "The sampling frame consists of all 5-minute intervals on 2024-01-24. A random seed was set and 100 intervals were randomly selected. For each selected interval, at most 100 AIS observations were queried. The procedure stops at 10,000 observations.",
+    "why_seed_matters": "Setting a random seed makes the random selection of intervals reproducible. This allows the same sample to be regenerated for checking, grading, and debugging.",
+    "possible_biases": ["Temporal cluster bias: selected 5-minute intervals may overrepresent short periods with unusually high or low traffic.", "Regional receiver bias: AIS observations available in those intervals may overrepresent regions with better receiver coverage.", "Vessel activity bias: vessels that transmit more frequently during selected intervals are more likely to appear in the sample."],
+    "alternative_strategy": "A stratified sample by ship_type and hour of day can reduce temporal and vessel-type imbalance. This is implemented below by allocating the total sample size proportionally to strata counts."
+  },
+  "plots": {
+    "ship_type": "03_report/graphs/task3_ship_type_comparison.png",
+    "speed": "03_report/graphs/task3_speed_comparison.png",
+    "collection_type": "03_report/graphs/task3_collection_type_comparison.png"
+  }
+}

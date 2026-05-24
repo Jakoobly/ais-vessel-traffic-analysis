@@ -1,0 +1,573 @@
+{
+  "metadata": {
+    "created_at": "2026-05-23 15:23:07.205833",
+    "base_url": "https://aidaho-edu.uni-hohenheim.de/aisdb"
+  },
+  "task2_2_available_resources": ["ais_dynamic", "ais_dynamic_daily_counts", "ais_dynamic_daily_counts_mat", "ais_germany", "ais_static", "geography_columns", "geometry_columns", "germany_h3", "ingested_files", "rpc/__h3_cell_to_children_aux", "rpc/_postgis_deprecate", "rpc/_postgis_index_extent", "rpc/_postgis_pgsql_version", "rpc/_postgis_scripts_pgsql_version", "rpc/_postgis_selectivity", "rpc/_postgis_stats", "rpc/_st_3ddfullywithin", "rpc/_st_3ddwithin", "rpc/_st_3dintersects", "rpc/_st_concavehull", "rpc/_st_contains", "rpc/_st_containsproperly", "rpc/_st_coveredby", "rpc/_st_covers", "rpc/_st_crosses", "rpc/_st_dfullywithin", "rpc/_st_dwithin", "rpc/_st_equals", "rpc/_st_intersects", "rpc/_st_linecrossingdirection", "rpc/_st_longestline", "rpc/_st_maxdistance", "rpc/_st_orderingequals", "rpc/_st_overlaps", "rpc/_st_sortablehash", "rpc/_st_touches", "rpc/_st_voronoi", "rpc/_st_within", "rpc/add_compression_policy", "rpc/add_continuous_aggregate_policy", "rpc/add_dimension", "rpc/add_job", "rpc/add_reorder_policy", "rpc/add_retention_policy", "rpc/addgeometrycolumn", "rpc/alter_job", "rpc/approximate_row_count", "rpc/attach_tablespace", "rpc/by_hash", "rpc/by_range", "rpc/chunk_columnstore_stats", "rpc/chunk_compression_stats", "rpc/chunks_detailed_size", "rpc/compress_chunk", "rpc/create_hypertable", "rpc/decompress_chunk", "rpc/delete_job", "rpc/detach_tablespace", "rpc/detach_tablespaces", "rpc/disable_chunk_skipping", "rpc/drop_chunks", "rpc/dropgeometrycolumn", "rpc/dropgeometrytable", "rpc/enable_chunk_skipping", "rpc/equals", "rpc/generate_uuidv7", "rpc/geography", "rpc/geometry", "rpc/geometry_above", "rpc/geometry_below", "rpc/geometry_cmp", "rpc/geometry_contained_3d", "rpc/geometry_contains", "rpc/geometry_contains_3d", "rpc/geometry_distance_box", "rpc/geometry_distance_centroid", "rpc/geometry_eq", "rpc/geometry_ge", "rpc/geometry_gist_same_2d", "rpc/geometry_gt", "rpc/geometry_le", "rpc/geometry_left", "rpc/geometry_lt", "rpc/geometry_neq", "rpc/geometry_overabove", "rpc/geometry_overbelow", "rpc/geometry_overlaps", "rpc/geometry_overlaps_3d", "rpc/geometry_overleft", "rpc/geometry_overright", "rpc/geometry_right", "rpc/geometry_same", "rpc/geometry_same_3d", "rpc/geometry_within", "rpc/geomfromewkb", "rpc/geomfromewkt", "rpc/get_telemetry_report", "rpc/h3_are_neighbor_cells", "rpc/h3_cell_area", "rpc/h3_cell_to_boundary", "rpc/h3_cell_to_center_child", "rpc/h3_cell_to_child_pos", "rpc/h3_cell_to_children", "rpc/h3_cell_to_children_slow", "rpc/h3_cell_to_lat_lng", "rpc/h3_cell_to_latlng", "rpc/h3_cell_to_local_ij", "rpc/h3_cell_to_parent", "rpc/h3_cell_to_vertex", "rpc/h3_cell_to_vertexes", "rpc/h3_cells_to_directed_edge", "rpc/h3_cells_to_multi_polygon", "rpc/h3_child_pos_to_cell", "rpc/h3_compact_cells", "rpc/h3_directed_edge_to_boundary", "rpc/h3_directed_edge_to_cells", "rpc/h3_edge_length", "rpc/h3_get_directed_edge_destination", "rpc/h3_get_directed_edge_origin", "rpc/h3_get_extension_version", "rpc/h3_get_hexagon_area_avg", "rpc/h3_get_hexagon_edge_length_avg", "rpc/h3_get_num_cells", "rpc/h3_get_pentagons", "rpc/h3_get_res_0_cells", "rpc/h3_great_circle_distance", "rpc/h3_grid_disk", "rpc/h3_grid_disk_distances", "rpc/h3_grid_distance", "rpc/h3_grid_path_cells", "rpc/h3_grid_ring_unsafe", "rpc/h3_is_valid_directed_edge", "rpc/h3_is_valid_vertex", "rpc/h3_lat_lng_to_cell", "rpc/h3_latlng_to_cell", "rpc/h3_local_ij_to_cell", "rpc/h3_polygon_to_cells", "rpc/h3_polygon_to_cells_experimental", "rpc/h3_uncompact_cells", "rpc/h3_vertex_to_lat_lng", "rpc/h3_vertex_to_latlng", "rpc/hypertable_approximate_detailed_size", "rpc/hypertable_approximate_size", "rpc/hypertable_columnstore_stats", "rpc/hypertable_compression_stats", "rpc/hypertable_detailed_size", "rpc/hypertable_index_size", "rpc/hypertable_size", "rpc/interpolate", "rpc/locf", "rpc/move_chunk", "rpc/populate_geometry_columns", "rpc/postgis_constraint_dims", "rpc/postgis_constraint_srid", "rpc/postgis_constraint_type", "rpc/postgis_extensions_upgrade", "rpc/postgis_full_version", "rpc/postgis_geos_compiled_version", "rpc/postgis_geos_version", "rpc/postgis_lib_build_date", "rpc/postgis_lib_revision", "rpc/postgis_lib_version", "rpc/postgis_libjson_version", "rpc/postgis_liblwgeom_version", "rpc/postgis_libprotobuf_version", "rpc/postgis_libxml_version", "rpc/postgis_proj_compiled_version", "rpc/postgis_proj_version", "rpc/postgis_scripts_build_date", "rpc/postgis_scripts_installed", "rpc/postgis_scripts_released", "rpc/postgis_srs", "rpc/postgis_srs_all", "rpc/postgis_srs_codes", "rpc/postgis_srs_search", "rpc/postgis_svn_version", "rpc/postgis_transform_geometry", "rpc/postgis_transform_pipeline_geometry", "rpc/postgis_type_name", "rpc/postgis_version", "rpc/postgis_wagyu_version", "rpc/remove_compression_policy", "rpc/remove_continuous_aggregate_policy", "rpc/remove_reorder_policy", "rpc/remove_retention_policy", "rpc/reorder_chunk", "rpc/set_adaptive_chunking", "rpc/set_chunk_time_interval", "rpc/set_integer_now_func", "rpc/set_number_partitions", "rpc/set_partitioning_interval", "rpc/show_chunks", "rpc/show_tablespaces", "rpc/st_3dclosestpoint", "rpc/st_3ddfullywithin", "rpc/st_3ddistance", "rpc/st_3ddwithin", "rpc/st_3dintersects", "rpc/st_3dlongestline", "rpc/st_3dmakebox", "rpc/st_3dmaxdistance", "rpc/st_3dshortestline", "rpc/st_addpoint", "rpc/st_angle", "rpc/st_area", "rpc/st_asencodedpolyline", "rpc/st_asewkt", "rpc/st_asgeojson", "rpc/st_asgml", "rpc/st_askml", "rpc/st_aslatlontext", "rpc/st_asmarc21", "rpc/st_asmvtgeom", "rpc/st_assvg", "rpc/st_astext", "rpc/st_astwkb", "rpc/st_asx3d", "rpc/st_azimuth", "rpc/st_boundingdiagonal", "rpc/st_buffer", "rpc/st_centroid", "rpc/st_clipbybox2d", "rpc/st_closestpoint", "rpc/st_collect", "rpc/st_concavehull", "rpc/st_contains", "rpc/st_containsproperly", "rpc/st_coorddim", "rpc/st_coveredby", "rpc/st_covers", "rpc/st_crosses", "rpc/st_curven", "rpc/st_curvetoline", "rpc/st_delaunaytriangles", "rpc/st_dfullywithin", "rpc/st_difference", "rpc/st_disjoint", "rpc/st_distance", "rpc/st_distancesphere", "rpc/st_distancespheroid", "rpc/st_dwithin", "rpc/st_equals", "rpc/st_expand", "rpc/st_force3d", "rpc/st_force3dm", "rpc/st_force3dz", "rpc/st_force4d", "rpc/st_forcesfs", "rpc/st_frechetdistance", "rpc/st_generatepoints", "rpc/st_geogfromtext", "rpc/st_geogfromwkb", "rpc/st_geographyfromtext", "rpc/st_geohash", "rpc/st_geomcollfromtext", "rpc/st_geomcollfromwkb", "rpc/st_geometricmedian", "rpc/st_geometryfromtext", "rpc/st_geomfromewkb", "rpc/st_geomfromewkt", "rpc/st_geomfromgeojson", "rpc/st_geomfromgml", "rpc/st_geomfromkml", "rpc/st_geomfrommarc21", "rpc/st_geomfromtext", "rpc/st_geomfromtwkb", "rpc/st_geomfromwkb", "rpc/st_gmltosql", "rpc/st_hasarc", "rpc/st_hausdorffdistance", "rpc/st_hexagon", "rpc/st_hexagongrid", "rpc/st_interpolatepoint", "rpc/st_intersection", "rpc/st_intersects", "rpc/st_inversetransformpipeline", "rpc/st_isvaliddetail", "rpc/st_largestemptycircle", "rpc/st_length", "rpc/st_letters", "rpc/st_linecrossingdirection", "rpc/st_lineextend", "rpc/st_linefromencodedpolyline", "rpc/st_linefromtext", "rpc/st_linefromwkb", "rpc/st_lineinterpolatepoint", "rpc/st_lineinterpolatepoints", "rpc/st_linelocatepoint", "rpc/st_linestringfromwkb", "rpc/st_linetocurve", "rpc/st_locatealong", "rpc/st_locatebetween", "rpc/st_locatebetweenelevations", "rpc/st_longestline", "rpc/st_makebox2d", "rpc/st_makeline", "rpc/st_makevalid", "rpc/st_maxdistance", "rpc/st_maximuminscribedcircle", "rpc/st_minimumboundingcircle", "rpc/st_minimumboundingradius", "rpc/st_mlinefromtext", "rpc/st_mlinefromwkb", "rpc/st_mpointfromtext", "rpc/st_mpointfromwkb", "rpc/st_mpolyfromtext", "rpc/st_mpolyfromwkb", "rpc/st_multilinefromwkb", "rpc/st_multilinestringfromtext", "rpc/st_multipointfromtext", "rpc/st_multipointfromwkb", "rpc/st_multipolyfromwkb", "rpc/st_multipolygonfromtext", "rpc/st_node", "rpc/st_normalize", "rpc/st_numcurves", "rpc/st_offsetcurve", "rpc/st_orderingequals", "rpc/st_overlaps", "rpc/st_perimeter", "rpc/st_point", "rpc/st_pointfromtext", "rpc/st_pointfromwkb", "rpc/st_pointm", "rpc/st_pointz", "rpc/st_pointzm", "rpc/st_polyfromtext", "rpc/st_polyfromwkb", "rpc/st_polygonfromtext", "rpc/st_polygonfromwkb", "rpc/st_project", "rpc/st_quantizecoordinates", "rpc/st_reduceprecision", "rpc/st_relate", "rpc/st_removerepeatedpoints", "rpc/st_scale", "rpc/st_segmentize", "rpc/st_setsrid", "rpc/st_sharedpaths", "rpc/st_shortestline", "rpc/st_simplifypolygonhull", "rpc/st_snap", "rpc/st_snaptogrid", "rpc/st_split", "rpc/st_square", "rpc/st_squaregrid", "rpc/st_srid", "rpc/st_subdivide", "rpc/st_swapordinates", "rpc/st_symdifference", "rpc/st_symmetricdifference", "rpc/st_tileenvelope", "rpc/st_touches", "rpc/st_transform", "rpc/st_transformpipeline", "rpc/st_triangulatepolygon", "rpc/st_unaryunion", "rpc/st_union", "rpc/st_voronoilines", "rpc/st_voronoipolygons", "rpc/st_within", "rpc/st_wkbtosql", "rpc/st_wkttosql", "rpc/st_wrapx", "rpc/time_bucket", "rpc/time_bucket_gapfill", "rpc/timescaledb_post_restore", "rpc/timescaledb_pre_restore", "rpc/to_uuidv7", "rpc/to_uuidv7_boundary", "rpc/updategeometrysrid", "rpc/uuid_timestamp", "rpc/uuid_timestamp_micros", "rpc/uuid_version", "spatial_ref_sys"],
+  "task2_3": {
+    "row_counts": [
+      {
+        "table": "ais_static",
+        "count_method": "local exact count / HEAD count",
+        "n_rows": 228427
+      },
+      {
+        "table": "ais_dynamic",
+        "count_method": "planned / approximate HEAD count",
+        "n_rows": 826793024
+      },
+      {
+        "table": "ais_germany",
+        "count_method": "planned / approximate HEAD count",
+        "n_rows": 389947776
+      }
+    ],
+    "distinct_vessels": [
+      {
+        "source": "ais_static",
+        "logic": "ais_static contains one row per MMSI; therefore distinct vessels are counted from non-missing mmsi values in ais_static",
+        "distinct_mmsi": 228427
+      }
+    ],
+    "top_ship_types": [
+      {
+        "ship_type": "Other",
+        "n": 57974
+      },
+      {
+        "ship_type": "Cargo",
+        "n": 51781
+      },
+      {
+        "ship_type": "Fishing Vessel",
+        "n": 34736
+      },
+      {
+        "ship_type": null,
+        "n": 21842
+      },
+      {
+        "ship_type": "Tanker",
+        "n": 16496
+      },
+      {
+        "ship_type": "Tug",
+        "n": 13257
+      },
+      {
+        "ship_type": "Pleasure Craft",
+        "n": 9014
+      },
+      {
+        "ship_type": "Special Craft",
+        "n": 7624
+      },
+      {
+        "ship_type": "Passenger Ship",
+        "n": 7147
+      },
+      {
+        "ship_type": "Sailing Vessel",
+        "n": 5164
+      },
+      {
+        "ship_type": "High-Speed Craft",
+        "n": 1227
+      },
+      {
+        "ship_type": "Search and Rescue",
+        "n": 1201
+      },
+      {
+        "ship_type": "Wing In Ground",
+        "n": 644
+      },
+      {
+        "ship_type": "Reserved",
+        "n": 320
+      }
+    ],
+    "flags": [
+      {
+        "flag": "CN",
+        "n": 67214
+      },
+      {
+        "flag": "US",
+        "n": 13771
+      },
+      {
+        "flag": "PA",
+        "n": 8024
+      },
+      {
+        "flag": "NL",
+        "n": 7635
+      },
+      {
+        "flag": "NO",
+        "n": 7303
+      },
+      {
+        "flag": "ID",
+        "n": 6538
+      },
+      {
+        "flag": "VN",
+        "n": 6308
+      },
+      {
+        "flag": "LR",
+        "n": 5629
+      },
+      {
+        "flag": "MH",
+        "n": 4991
+      },
+      {
+        "flag": "KR",
+        "n": 4903
+      },
+      {
+        "flag": "JP",
+        "n": 4810
+      },
+      {
+        "flag": "GB",
+        "n": 4418
+      },
+      {
+        "flag": "SG",
+        "n": 4161
+      },
+      {
+        "flag": "DE",
+        "n": 4098
+      },
+      {
+        "flag": "MT",
+        "n": 3056
+      },
+      {
+        "flag": "AU",
+        "n": 3055
+      },
+      {
+        "flag": "HK",
+        "n": 2800
+      },
+      {
+        "flag": "RU",
+        "n": 2595
+      },
+      {
+        "flag": "ES",
+        "n": 2574
+      },
+      {
+        "flag": "DK",
+        "n": 2560
+      },
+      {
+        "flag": "FR",
+        "n": 2537
+      },
+      {
+        "flag": "CA",
+        "n": 2334
+      },
+      {
+        "flag": "IN",
+        "n": 2272
+      },
+      {
+        "flag": "TR",
+        "n": 2200
+      },
+      {
+        "flag": "IT",
+        "n": 1964
+      },
+      {
+        "flag": "TW",
+        "n": 1928
+      },
+      {
+        "flag": "CY",
+        "n": 1831
+      },
+      {
+        "flag": "BR",
+        "n": 1818
+      },
+      {
+        "flag": "SA",
+        "n": 1607
+      },
+      {
+        "flag": "PT",
+        "n": 1595
+      }
+    ],
+    "n_distinct_flags": 229,
+    "most_common_flag": [
+      {
+        "flag": "CN",
+        "n": 67214
+      }
+    ],
+    "ais_static_column_overview": [
+      {
+        "column": "mmsi",
+        "guessed_r_type": "integer",
+        "n_non_missing": 228427,
+        "example_values": "355289000, 367168640, 308621000, 229630000, 244660429"
+      },
+      {
+        "column": "imo",
+        "guessed_r_type": "integer",
+        "n_non_missing": 121121,
+        "example_values": "8918978, 9243162, 9169744, 9365960, 0"
+      },
+      {
+        "column": "name",
+        "guessed_r_type": "character",
+        "n_non_missing": 214784,
+        "example_values": "MSC SUEZ, CHARLESTON EXPRESS, GSP ALTAIR, X-PRESS MULHACEN, RS ALINDA@@@@@@@@@@@"
+      },
+      {
+        "column": "call_sign",
+        "guessed_r_type": "character",
+        "n_non_missing": 184208,
+        "example_values": "HPMS, WDD6126, C6PW6, 9HA3465, PH4782@"
+      },
+      {
+        "column": "flag",
+        "guessed_r_type": "character",
+        "n_non_missing": 228405,
+        "example_values": "PA, US, BS, MT, NL"
+      },
+      {
+        "column": "draught",
+        "guessed_r_type": "numeric",
+        "n_non_missing": 121121,
+        "example_values": "8.7, 10, 5, 7, 0"
+      },
+      {
+        "column": "ship_type_code",
+        "guessed_r_type": "integer",
+        "n_non_missing": 216262,
+        "example_values": "74, 70, 72, 79, 75"
+      },
+      {
+        "column": "ship_type",
+        "guessed_r_type": "character",
+        "n_non_missing": 206585,
+        "example_values": "Cargo, Passenger Ship, Other, Tanker, Wing In Ground"
+      },
+      {
+        "column": "length",
+        "guessed_r_type": "integer",
+        "n_non_missing": 216537,
+        "example_values": "237, 243, 83, 142, 86"
+      },
+      {
+        "column": "width",
+        "guessed_r_type": "integer",
+        "n_non_missing": 216537,
+        "example_values": "32, 19, 20, 8, 29"
+      },
+      {
+        "column": "eta",
+        "guessed_r_type": "character",
+        "n_non_missing": 95439,
+        "example_values": "2024-01-23T13:00:00+00:00, 2021-05-06T14:00:00+00:00, 2022-03-09T01:00:00+00:00, 2024-01-23T14:00:00+00:00, 2024-01-25T20:00:00+00:00"
+      },
+      {
+        "column": "destination",
+        "guessed_r_type": "character",
+        "n_non_missing": 119123,
+        "example_values": "CISPY, GBLGP, ANA RIG, NLRTM, ROTTERDAM BOTLEK@@@@"
+      },
+      {
+        "column": "static_updated_at",
+        "guessed_r_type": "character",
+        "n_non_missing": 203288,
+        "example_values": "2024-01-24T23:28:44+00:00, 2021-05-04T18:40:39+00:00, 2022-03-08T19:10:18+00:00, 2024-01-24T23:51:50+00:00, 2024-01-24T23:55:00+00:00"
+      }
+    ],
+    "ais_static_numeric_summary": [
+      {
+        "column": "draught",
+        "n_non_missing": 121121,
+        "min": 0,
+        "max": 25.5,
+        "avg": 4.7158
+      },
+      {
+        "column": "imo",
+        "n_non_missing": 121121,
+        "min": 0,
+        "max": 977392300,
+        "avg": 5416987.437
+      },
+      {
+        "column": "length",
+        "n_non_missing": 216537,
+        "min": 0,
+        "max": 1022,
+        "avg": 63.5805
+      },
+      {
+        "column": "mmsi",
+        "n_non_missing": 228427,
+        "min": 2010002,
+        "max": 995093791,
+        "avg": 387793156.8418
+      },
+      {
+        "column": "ship_type_code",
+        "n_non_missing": 216262,
+        "min": 0,
+        "max": 255,
+        "avg": 45.1552
+      },
+      {
+        "column": "width",
+        "n_non_missing": 216537,
+        "min": 0,
+        "max": 126,
+        "avg": 11.5478
+      }
+    ],
+    "ais_static_categorical_top_values": [
+      {
+        "column": "call_sign",
+        "value": "@@@@@@@",
+        "n": 25653
+      },
+      {
+        "column": "call_sign",
+        "value": "0000000",
+        "n": 7492
+      },
+      {
+        "column": "call_sign",
+        "value": "0@@@@@@",
+        "n": 3205
+      },
+      {
+        "column": "call_sign",
+        "value": "1234567",
+        "n": 1500
+      },
+      {
+        "column": "call_sign",
+        "value": "YYYY@@@",
+        "n": 755
+      },
+      {
+        "column": "destination",
+        "value": "@@@@@@@@@@@@@@@@@@@@",
+        "n": 17135
+      },
+      {
+        "column": "destination",
+        "value": "0@@@@@@@@@@@@@@@@@@@",
+        "n": 692
+      },
+      {
+        "column": "destination",
+        "value": "SHANGHAI@@@@@@@@@@@@",
+        "n": 593
+      },
+      {
+        "column": "destination",
+        "value": "ZHOUSHAN",
+        "n": 459
+      },
+      {
+        "column": "destination",
+        "value": "@",
+        "n": 401
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-01T00:00:00+00:00",
+        "n": 1833
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-01T01:01:00+00:00",
+        "n": 1119
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-25T08:00:00+00:00",
+        "n": 497
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-25T12:00:00+00:00",
+        "n": 446
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-25T06:00:00+00:00",
+        "n": 399
+      },
+      {
+        "column": "flag",
+        "value": "CN",
+        "n": 67214
+      },
+      {
+        "column": "flag",
+        "value": "US",
+        "n": 13771
+      },
+      {
+        "column": "flag",
+        "value": "PA",
+        "n": 8024
+      },
+      {
+        "column": "flag",
+        "value": "NL",
+        "n": 7635
+      },
+      {
+        "column": "flag",
+        "value": "NO",
+        "n": 7303
+      },
+      {
+        "column": "name",
+        "value": "@@@@@@@@@@@@@@@@@@@@",
+        "n": 666
+      },
+      {
+        "column": "name",
+        "value": "@@@@@@@@@@@@@@@@@@@",
+        "n": 112
+      },
+      {
+        "column": "name",
+        "value": "SH",
+        "n": 71
+      },
+      {
+        "column": "name",
+        "value": "0@@@@@@@@@@@@@@@@@@@",
+        "n": 47
+      },
+      {
+        "column": "name",
+        "value": "ORION",
+        "n": 33
+      },
+      {
+        "column": "ship_type",
+        "value": "Other",
+        "n": 57974
+      },
+      {
+        "column": "ship_type",
+        "value": "Cargo",
+        "n": 51781
+      },
+      {
+        "column": "ship_type",
+        "value": "Fishing Vessel",
+        "n": 34736
+      },
+      {
+        "column": "ship_type",
+        "value": "Tanker",
+        "n": 16496
+      },
+      {
+        "column": "ship_type",
+        "value": "Tug",
+        "n": 13257
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:49:28+00:00",
+        "n": 75
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:49:36+00:00",
+        "n": 73
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:46:41+00:00",
+        "n": 72
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:43:56+00:00",
+        "n": 70
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:47:04+00:00",
+        "n": 70
+      }
+    ]
+  },
+  "task2_4": {
+    "query_logic": {
+      "benelux": "Local filtering on ais_static: flag in Belgium, Netherlands, Luxembourg, BE, NL, LU",
+      "german_cargo": "Local filtering on ais_static: German flag and ship_type contains cargo; length > 150 for long cargo ships",
+      "express": "Local filtering on ais_static: vessel name contains EXPRESS",
+      "first_5_minutes_2022": "ais_dynamic HEAD count and mmsi query filtered to 2022-01-01 00:00:00 <= msg_timestamp < 00:05:00 UTC",
+      "fast_vessels": "ais_dynamic queried for 2021-05-04 14:00-14:30 UTC with speed > 12; cargo status joined locally from ais_static",
+      "limit": "PostgREST parameter limit=n returns at most n records"
+    },
+    "answers": {
+      "benelux_ships": 9476,
+      "german_cargo_ships": 291,
+      "german_cargo_longer_150m": 76,
+      "express_name_vessels": 572,
+      "dynamic_records_first_5_minutes_2022": 1506,
+      "distinct_vessels_first_5_minutes_2022": 1100,
+      "vessels_faster_than_12_knots": 76,
+      "cargo_vessels_faster_than_12_knots": 31,
+      "limit_example": [
+        {
+          "mmsi": 355289000,
+          "name": "MSC SUEZ",
+          "flag": "PA",
+          "ship_type": "Cargo"
+        },
+        {
+          "mmsi": 367168640,
+          "name": "CHARLESTON EXPRESS",
+          "flag": "US",
+          "ship_type": null
+        },
+        {
+          "mmsi": 308621000,
+          "name": "GSP ALTAIR",
+          "flag": "BS",
+          "ship_type": null
+        },
+        {
+          "mmsi": 229630000,
+          "name": "X-PRESS MULHACEN",
+          "flag": "MT",
+          "ship_type": "Cargo"
+        },
+        {
+          "mmsi": 244660429,
+          "name": "RS ALINDA@@@@@@@@@@@",
+          "flag": "NL",
+          "ship_type": "Cargo"
+        }
+      ]
+    }
+  }
+}

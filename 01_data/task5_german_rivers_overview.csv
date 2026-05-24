@@ -1,0 +1,11 @@
+river_name,major_for_legend,n
+Rhine,TRUE,3
+Danube,TRUE,1
+Elbe,TRUE,1
+Ems,TRUE,1
+Inn,FALSE,1
+Main,TRUE,1
+Meuse,FALSE,1
+Moselle,TRUE,1
+Oder,TRUE,1
+Weser,TRUE,1
