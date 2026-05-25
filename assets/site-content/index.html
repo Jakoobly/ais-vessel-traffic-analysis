@@ -3,86 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>THAS 2026 Dashboard</title>
+  <title>THAS 2026 AIS Dashboard</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    :root {
+      --bg: #eef3f8;
+      --card: rgba(255, 255, 255, 0.92);
+      --text: #172033;
+      --muted: #5f6f89;
+      --blue: #2563eb;
+      --green: #16a34a;
+      --border: rgba(23, 32, 51, 0.10);
+      --shadow: 0 24px 70px rgba(20, 35, 70, 0.16);
     }
 
-    .container {
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(37, 99, 235, 0.14), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(22, 163, 74, 0.12), transparent 28%),
+        linear-gradient(135deg, #f8fafc 0%, var(--bg) 100%);
+      display: grid;
+      place-items: center;
+      padding: 32px;
+    }
+
+    .dashboard-card {
+      width: min(920px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 54px 52px;
       text-align: center;
-      background: white;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      max-width: 700px;
-      width: 90%;
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.10);
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
     h1 {
-      margin-bottom: 10px;
-      color: #222;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    p {
-      color: #666;
-      margin-bottom: 40px;
+    .subtitle {
+      max-width: 650px;
+      margin: 18px auto 36px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+
+    .meta-pill {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: #475569;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .button-container {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
+      gap: 18px;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
     .nav-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 74px;
+      padding: 20px 26px;
+      border-radius: 18px;
       text-decoration: none;
-      background: #2563eb;
-      color: white;
-      padding: 20px 30px;
-      border-radius: 14px;
+      color: #fff;
       font-size: 18px;
-      font-weight: bold;
-      min-width: 240px;
-      transition: 0.2s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--blue), #1d4ed8);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
     }
 
     .nav-button:hover {
       transform: translateY(-3px);
+      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.30);
+      filter: brightness(1.03);
     }
 
-    .secondary {
-      background: #16a34a;
+    .nav-button.secondary {
+      background: linear-gradient(135deg, var(--green), #15803d);
+      box-shadow: 0 12px 24px rgba(22, 163, 74, 0.25);
+    }
+
+    .nav-button.secondary:hover {
+      box-shadow: 0 18px 32px rgba(22, 163, 74, 0.30);
+    }
+
+    .footer-note {
+      margin-top: 34px;
+      color: #7b8798;
+      font-size: 13px;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 18px;
+      }
+
+      .dashboard-card {
+        padding: 36px 22px;
+        border-radius: 22px;
+      }
+
+      .button-container {
+        grid-template-columns: 1fr;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>THAS 2026 AIS Dashboard</h1>
-    <p>
-      Interactive visualizations for AIS vessel data analysis.
+  <main class="dashboard-card">
+    <div class="eyebrow">🚢 THAS 2026 · AIS Data Analysis</div>
+
+    <h1>AIS Dashboard</h1>
+
+    <p class="subtitle">
+      Interactive visualizations for vessel tracking data, sample exploration,
+      and river traffic density analysis.
     </p>
+
+    <div class="meta-row" aria-label="Project metadata">
+      <span class="meta-pill">Static HTML dashboard</span>
+      <span class="meta-pill">Leaflet map</span>
+      <span class="meta-pill">Shiny app</span>
+    </div>
 
     <div class="button-container">
       <a class="nav-button" href="/sample_points.html">
-        📍 Sample Points Map
+        <span>📍</span>
+        <span>Sample Points Map</span>
       </a>
 
       <a class="nav-button secondary" href="/ais_app/">
-        🚢 AIS Traffic Density App
+        <span>📊</span>
+        <span>AIS Traffic Density App</span>
       </a>
     </div>
-  </div>
+
+    <div class="footer-note">
+      University of Hohenheim · Introduction to Data Science with R & RStudio
+    </div>
+  </main>
 </body>
 </html>
