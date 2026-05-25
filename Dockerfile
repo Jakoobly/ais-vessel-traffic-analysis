@@ -12,7 +12,7 @@ RUN apt-get update -qq && \
       libjpeg-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN R -e 'install.packages(c("dplyr", "ggplot2"), repos = "https://cloud.r-project.org")'
+RUN R -e 'install.packages(c("dplyr", "ggplot2", "readr", "shiny"), repos = "https://cloud.r-project.org")'
 
 EXPOSE 3838
 USER shiny
