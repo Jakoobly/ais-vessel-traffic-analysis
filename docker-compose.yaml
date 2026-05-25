@@ -1,27 +1,26 @@
 version: '3.8'
 
 services:
-  nginx:
-    image: nginx:1.25-alpine
-    ports:
-      - "80:80"
-    volumes:
-      - ./assets/site-content:/usr/share/nginx/html:rw
-      - ./assets/config:/etc/nginx/conf.d:rw
-    depends_on:
-      - shiny
-
+    nginx:
+        image: nginx:1.25-alpine
+        ports:
+            - "80:80"
+        volumes:
+            - ./assets/site-content:/usr/share/nginx/html:rw
+            - ./assets/config:/etc/nginx/conf.d:rw
     shiny:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ais_shiny
-    restart: unless-stopped
-    expose:
-      - "3838"
-    volumes:
-      - ./shiny:/srv/shiny-server:ro
-      - ./01_data:/home/shiny-data:ro
-      - ./assets/logs:/var/log/shiny-server:rw
-    environment:
-      - SHINY_PORT=3838
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: aidaho-edu.uni-hohenheim.de/jbleher/shiny_thas2025:0.1
+        container_name: ais_shiny
+        restart: unless-stopped
+        ports:
+            - "3838:3838"
+        volumes:
+            - ./shiny:/srv/shiny-server:rw
+            - ./assets/logs:/var/log/shiny-server:rw
+        environment:
+            # not strictly required—Shiny server listens on 3838 by default
+            - SHINY_PORT=3838
+
