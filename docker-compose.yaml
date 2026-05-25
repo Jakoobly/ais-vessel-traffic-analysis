@@ -11,17 +11,17 @@ services:
     depends_on:
       - shiny
 
-  shiny:
+    shiny:
     build:
       context: .
       dockerfile: Dockerfile
-    image: aidaho-edu.uni-hohenheim.de/jbleher/shiny_thas2025:0.1
     container_name: ais_shiny
     restart: unless-stopped
-    ports:
-      - "3838:3838"
+    expose:
+      - "3838"
     volumes:
-      - ./shiny:/srv/shiny-server:rw
+      - ./shiny:/srv/shiny-server:ro
+      - ./01_data:/home/shiny-data:ro
       - ./assets/logs:/var/log/shiny-server:rw
     environment:
       - SHINY_PORT=3838
