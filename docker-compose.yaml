@@ -25,5 +25,5 @@ services:
       # Task 7 requirement: local changes in /shiny are visible inside the container.
       - ./shiny:/srv/shiny-server:ro
       # The app reads preprocessed data; it does not query the API interactively.
-      - ./01_data:/srv/shiny-server/data:ro
+      - ./01_data:/home/shiny-data:ro
       - ./assets/logs:/var/log/shiny-server:rw
