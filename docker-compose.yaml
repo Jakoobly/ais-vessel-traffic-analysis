@@ -8,6 +8,8 @@ services:
     volumes:
       - ./assets/site-content:/usr/share/nginx/html:rw
       - ./assets/config:/etc/nginx/conf.d:rw
+    depends_on:
+      - shiny
 
   shiny:
     build:
@@ -18,16 +20,8 @@ services:
     restart: unless-stopped
     ports:
       - "3838:3838"
-
     volumes:
-      # Task 7 requirement:
-      # local shiny changes visible in container
       - ./shiny:/srv/shiny-server:rw
-
-      # preprocessed THAS data
-      - ./01_data:/home/shiny-data:ro
-
       - ./assets/logs:/var/log/shiny-server:rw
-
     environment:
       - SHINY_PORT=3838
