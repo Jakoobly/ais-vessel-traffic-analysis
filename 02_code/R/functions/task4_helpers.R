@@ -219,7 +219,7 @@ make_sample_map <- function(sample_data,
     setView(
       lng = 8,
       lat = 18,
-      zoom = 2
+      zoom = 3
     ) |>
     
     addCircleMarkers(
