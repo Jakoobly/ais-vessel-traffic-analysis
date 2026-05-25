@@ -189,19 +189,39 @@ add_popup_text <- function(data) {
     )
 }
 
-make_sample_map <- function(sample_data, map_title = "AIS sample points") {
+make_sample_map <- function(sample_data,
+                            map_title = "AIS sample points") {
+  
   sample_data <- sample_data |>
     clean_track_data() |>
     add_popup_text()
-
+  
   if (nrow(sample_data) == 0) {
     stop("No valid sample points available for the map.")
   }
-
+  
   speed_pal <- make_speed_palette()
-
-  leaflet(sample_data) |>
+  
+  leaflet(
+    sample_data,
+    options = leafletOptions(
+      zoomControl = TRUE,
+      minZoom = 1,
+      worldCopyJump = TRUE
+    )
+  ) |>
+    
+    # Clean map style
     addProviderTiles(providers$CartoDB.Positron) |>
+    
+    # NEW: start slightly zoomed in
+    # still shows the full world but closer
+    setView(
+      lng = 8,
+      lat = 18,
+      zoom = 2
+    ) |>
+    
     addCircleMarkers(
       lng = ~longitude,
       lat = ~latitude,
@@ -210,8 +230,13 @@ make_sample_map <- function(sample_data, map_title = "AIS sample points") {
       fillOpacity = 0.75,
       color = ~speed_pal(speed_plot),
       popup = ~popup_text,
-      clusterOptions = markerClusterOptions()
+      clusterOptions = markerClusterOptions(
+        spiderfyOnMaxZoom = TRUE,
+        showCoverageOnHover = FALSE,
+        zoomToBoundsOnClick = TRUE
+      )
     ) |>
+    
     addLegend(
       position = "bottomright",
       pal = speed_pal,
@@ -219,9 +244,17 @@ make_sample_map <- function(sample_data, map_title = "AIS sample points") {
       title = "Speed over ground<br>(kn, capped at 40)",
       opacity = 0.9
     ) |>
+    
     addControl(
       html = htmltools::tags$div(
-        style = "background: rgba(255,255,255,0.9); padding: 8px; border-radius: 4px; font-weight: bold;",
+        style = paste(
+          "background: rgba(255,255,255,0.95);",
+          "padding: 10px 14px;",
+          "border-radius: 10px;",
+          "box-shadow: 0 2px 10px rgba(0,0,0,0.15);",
+          "font-weight: bold;",
+          "font-family: Arial, sans-serif;"
+        ),
         map_title
       ),
       position = "topright"
