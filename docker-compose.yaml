@@ -19,6 +19,7 @@ services:
             - "3838:3838"
         volumes:
             - ./shiny:/srv/shiny-server:rw
+            - ./01_data/task7_shiny_traffic_density.csv:/srv/shiny-server/task7_shiny_traffic_density.csv:ro
             - ./assets/logs:/var/log/shiny-server:rw
         environment:
             # not strictly required—Shiny server listens on 3838 by default
