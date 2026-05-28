@@ -166,13 +166,6 @@ docker compose up -d
 docker compose down
 ```
 
-### Check logs
-
-```bash
-docker compose logs shiny
-docker compose logs nginx
-```
-
 ### Rebuild containers
 
 ```bash
