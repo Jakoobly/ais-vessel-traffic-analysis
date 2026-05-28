@@ -10,6 +10,7 @@
 source("02_code/R/functions/task4_helpers.R")
 ensure_task4_dirs()
 
+speed_cap_kn <- 40
 sample_path <- "01_data/sample_intervals.csv"
 fallback_path <- "01_data/sample.csv"
 

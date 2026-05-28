@@ -3,3 +3,10 @@
 .RData
 .Ruserdata
 assets/logs/
+renv/library/
+renv/staging/
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+assets/shiny/.Rhistory

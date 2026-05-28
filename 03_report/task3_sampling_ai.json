@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "created_at": "2026-05-23 21:58:46.104746",
+    "created_at": "2026-05-28 13:56:36.996989",
     "base_url": "https://aidaho-edu.uni-hohenheim.de/aisdb",
     "sampling_day": "2024-01-24",
     "seed": 1103276
@@ -13,7 +13,7 @@
   },
   "stratified_sample": {
     "n_rows": 10000,
-    "n_strata": 272,
+    "n_strata": 263,
     "stratification_variables": ["ship_type", "hour"],
     "allocation_rule": "Proportional allocation with at least 1 observation for non-empty strata; remaining observations distributed by largest fractional remainder.",
     "random_retrieval_note": "True reproducible random retrieval from the API was not assumed. Hourly API extracts were sampled locally with a fixed seed.",

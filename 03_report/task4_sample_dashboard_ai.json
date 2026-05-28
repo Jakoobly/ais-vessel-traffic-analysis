@@ -1,21 +1,21 @@
 {
   "metadata": {
-    "created_at": "2026-05-23 23:18:26.363529",
+    "created_at": "2026-05-28 14:12:55.318419",
     "source_file": "01_data/sample_intervals.csv",
     "speed_cap_for_visualisation_kn": 40
   },
   "full_sample": {
-    "n_rows": 9331,
-    "n_missing_speed_removed": 669,
+    "n_rows": 9334,
+    "n_missing_speed_removed": 666,
     "speed_min_kn": 0,
     "speed_median_kn": 0.1,
-    "speed_mean_kn": 3.9457,
+    "speed_mean_kn": 3.9651,
     "speed_max_kn": 102.3,
-    "n_speed_above_cap": 67
+    "n_speed_above_cap": 64
   },
   "satellite_sample": {
-    "n_rows": 2250,
-    "share_of_full_sample": 0.2411
+    "n_rows": 2152,
+    "share_of_full_sample": 0.2306
   },
   "outputs": {
     "full_map": "03_report/graphs/sample_points_full.html",

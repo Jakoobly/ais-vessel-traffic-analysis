@@ -1,8 +1,8 @@
 # Task 4.1 Sample Dashboard
 
 Source file: `01_data/sample_intervals.csv`
-Number of valid AIS observations used in the full map: 9331
-Number of satellite-only observations: 2250
+Number of valid AIS observations used in the full map: 9334
+Number of satellite-only observations: 2152
 
 ## Visualisation
 
@@ -10,7 +10,7 @@ The full AIS sample and the satellite-only subset were visualised with interacti
 
 ## Comparison of full sample and satellite-only map
 
-The satellite-only map contains 2250 observations, compared with 9331 observations in the full sample. The broad spatial pattern is similar because both maps are based on the same sampled day and interval strategy. However, the satellite-only subset is sparser and may emphasize offshore and remote areas more strongly, where terrestrial AIS receiver coverage is weaker or unavailable.
+The satellite-only map contains 2152 observations, compared with 9334 observations in the full sample. The broad spatial pattern is similar because both maps are based on the same sampled day and interval strategy. However, the satellite-only subset is sparser and may emphasize offshore and remote areas more strongly, where terrestrial AIS receiver coverage is weaker or unavailable.
 
 ## Output files
 

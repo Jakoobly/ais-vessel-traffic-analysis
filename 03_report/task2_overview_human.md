@@ -1,6 +1,6 @@
 # Task 2 - AIS API Overview
 
-Created at: 2026-05-23 15:23:07.205833
+Created at: 2026-05-28 14:00:01.577937
 
 ## Important implementation note
 Grouped PostgREST aggregate queries were rejected by the server with HTTP 400 in this environment. Therefore, this script computes grouped summaries locally from `ais_static`, which is safe because it contains one row per vessel. The large `ais_dynamic` table is only queried with strict time filters or HEAD counts.
@@ -392,9 +392,9 @@ Grouped PostgREST aggregate queries were rejected by the server with HTTP 400 in
 
 ## Distinct vessels
 # A tibble: 1 × 3
-  source     logic                                                                                                                   distinct_mmsi
-  <chr>      <chr>                                                                                                                           <int>
-1 ais_static ais_static contains one row per MMSI; therefore distinct vessels are counted from non-missing mmsi values in ais_static        228427
+  source     logic                                              distinct_mmsi
+  <chr>      <chr>                                                      <int>
+1 ais_static ais_static contains one row per MMSI; therefore d…        228427
 
 ## Most frequent ship types
 # A tibble: 14 × 2
@@ -453,21 +453,21 @@ Distinct flags in ais_static: 229
 
 ## ais_static columns
 # A tibble: 13 × 4
-   column            guessed_r_type n_non_missing example_values                                                                                                 
-   <chr>             <chr>                  <int> <chr>                                                                                                          
- 1 mmsi              integer               228427 355289000, 367168640, 308621000, 229630000, 244660429                                                          
- 2 imo               integer               121121 8918978, 9243162, 9169744, 9365960, 0                                                                          
- 3 name              character             214784 MSC SUEZ, CHARLESTON EXPRESS, GSP ALTAIR, X-PRESS MULHACEN, RS ALINDA@@@@@@@@@@@                               
- 4 call_sign         character             184208 HPMS, WDD6126, C6PW6, 9HA3465, PH4782@                                                                         
- 5 flag              character             228405 PA, US, BS, MT, NL                                                                                             
- 6 draught           numeric               121121 8.7, 10, 5, 7, 0                                                                                               
- 7 ship_type_code    integer               216262 74, 70, 72, 79, 75                                                                                             
- 8 ship_type         character             206585 Cargo, Passenger Ship, Other, Tanker, Wing In Ground                                                           
- 9 length            integer               216537 237, 243, 83, 142, 86                                                                                          
-10 width             integer               216537 32, 19, 20, 8, 29                                                                                              
-11 eta               character              95439 2024-01-23T13:00:00+00:00, 2021-05-06T14:00:00+00:00, 2022-03-09T01:00:00+00:00, 2024-01-23T14:00:00+00:00, 20…
-12 destination       character             119123 CISPY, GBLGP, ANA RIG, NLRTM, ROTTERDAM BOTLEK@@@@                                                             
-13 static_updated_at character             203288 2024-01-24T23:28:44+00:00, 2021-05-04T18:40:39+00:00, 2022-03-08T19:10:18+00:00, 2024-01-24T23:51:50+00:00, 20…
+   column            guessed_r_type n_non_missing example_values             
+   <chr>             <chr>                  <int> <chr>                      
+ 1 mmsi              integer               228427 355289000, 367168640, 3086…
+ 2 imo               integer               121121 8918978, 9243162, 9169744,…
+ 3 name              character             214784 MSC SUEZ, CHARLESTON EXPRE…
+ 4 call_sign         character             184208 HPMS, WDD6126, C6PW6, 9HA3…
+ 5 flag              character             228405 PA, US, BS, MT, NL         
+ 6 draught           numeric               121121 8.7, 10, 5, 7, 0           
+ 7 ship_type_code    integer               216262 74, 70, 72, 79, 75         
+ 8 ship_type         character             206585 Cargo, Passenger Ship, Oth…
+ 9 length            integer               216537 237, 243, 83, 142, 86      
+10 width             integer               216537 32, 19, 20, 8, 29          
+11 eta               character              95439 2024-01-23T13:00:00+00:00,…
+12 destination       character             119123 CISPY, GBLGP, ANA RIG, NLR…
+13 static_updated_at character             203288 2024-01-24T23:28:44+00:00,…
 
 ## Numeric summaries for ais_static
 # A tibble: 6 × 5
