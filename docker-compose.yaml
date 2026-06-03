@@ -4,10 +4,11 @@ services:
     nginx:
         image: nginx:1.25-alpine
         ports:
-            - "80:80"
+            - "7080:80"
         volumes:
             - ./assets/site-content:/usr/share/nginx/html:rw
             - ./assets/config:/etc/nginx/conf.d:rw
+
     shiny:
         build:
             context: .
@@ -15,8 +16,6 @@ services:
         image: aidaho-edu.uni-hohenheim.de/jbleher/shiny_thas2025:0.1
         container_name: ais_shiny
         restart: unless-stopped
-        ports:
-            - "7080:3838"
         volumes:
             - ./assets/shiny:/srv/shiny-server:rw
             - ./01_data:/srv/shiny-server/data:ro
@@ -24,4 +23,3 @@ services:
         environment:
             # not strictly required—Shiny server listens on 3838 by default
             - SHINY_PORT=3838
-
