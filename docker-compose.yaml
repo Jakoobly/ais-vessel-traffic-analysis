@@ -16,7 +16,7 @@ services:
         container_name: ais_shiny
         restart: unless-stopped
         ports:
-            - "3838:3838"
+            - "7080:3838"
         volumes:
             - ./assets/shiny:/srv/shiny-server:rw
             - ./01_data:/srv/shiny-server/data:ro
