@@ -175,13 +175,26 @@ ui <- tagList(
         align-items: flex-start;
         justify-content: space-between;
         gap: 14px;
-        margin-bottom: 8px;
+        margin-bottom: 18px;
+      }
+
+      .plot-title-block {
+        padding-left: 16px;
+        border-left: 4px solid var(--blue);
       }
 
       .plot-title {
         margin: 0;
         font-size: 22px;
         font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .plot-subtitle {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
       }
 
       .status-pill {
@@ -262,7 +275,11 @@ ui <- tagList(
         class = "plot-card",
         div(
           class = "plot-header",
-          h2(class = "plot-title", "Traffic density plot"),
+          div(
+            class = "plot-title-block",
+            h2(class = "plot-title", textOutput("plot_heading", inline = TRUE)),
+            div(class = "plot-subtitle", textOutput("plot_subheading", inline = TRUE))
+          ),
           div(class = "status-pill", textOutput("traffic_status", inline = TRUE))
         ),
         conditionalPanel(

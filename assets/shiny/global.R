@@ -69,18 +69,13 @@ plot_traffic_density <- function(data, river, ship_types) {
     ) +
     scale_y_continuous(labels = scales::comma) +
     labs(
-      title = paste("AIS traffic density along", river),
-      subtitle = paste0(
-        "2022-04-23 · selected ship types: ",
-        paste(ship_types, collapse = ", ")
-      ),
       x = "Approximate distance along river geometry (km)",
       y = "AIS records per 10 km bin"
     ) +
     theme_minimal(base_size = 14) +
     theme(
-      plot.title = element_text(face = "bold", size = 19, color = "#172033"),
-      plot.subtitle = element_text(size = 11, color = "#5f6f89", margin = margin(b = 14)),
+      plot.title = element_blank(),
+      plot.subtitle = element_blank(),
       axis.title = element_text(face = "bold", color = "#172033"),
       axis.text = element_text(color = "#5f6f89"),
       panel.grid.major.x = element_blank(),

@@ -3,6 +3,19 @@ server <- function(input, output, session) {
   output$total_rivers <- renderText(format_big_number(total_rivers))
   output$total_ship_types <- renderText(format_big_number(total_ship_types))
 
+  output$plot_heading <- renderText({
+    req(input$river)
+    paste("AIS traffic density along", input$river)
+  })
+
+  output$plot_subheading <- renderText({
+    req(input$ship_types)
+    paste0(
+      "2022-04-23 · selected ship types: ",
+      paste(input$ship_types, collapse = ", ")
+    )
+  })
+
   traffic_data <- eventReactive(input$update, {
     req(input$river, input$ship_types)
 
