@@ -2,7 +2,7 @@
 
 Take Home Assignment (THAS) for the course **Introduction to Data Science with R & RStudio** at the **AIDAHO – AI & Data Science Certificate Hohenheim**.
 
-This repository contains all scripts, data, reports, and deployment files required to reproduce the analysis and web applications for the THAS 2026 assignment.
+This repository contains all scripts, generated data, reports, helper functions, and deployment files required to reproduce the analysis and web applications developed for the THAS 2026 assignment.
 
 ---
 
@@ -21,33 +21,42 @@ Matrikelnummer: **1091043**
 ```text
 AIDAHO_IDS_THAS_2026/
 │
-├── 00_docs/                  # Assignment sheets and documentation
+├── 00_docs/                          # Assignment sheets and documentation
 │
-├── 01_data/                  # Generated datasets and intermediate outputs
-│   ├── sample_intervals.csv
-│   ├── sample_stratified.csv
-│   └── ...
+├── 01_data/                          # Generated datasets and intermediate outputs
+│   ├── task_*/
+│   │   ├── output_*
+│   │   └── output_*
 │
 ├── 02_code/
-│   └── R/                    # R scripts for Tasks 2–7
-│       ├── functions/        # Helper functions
-│       └── ...
+│   └── R/
+│       ├── functions/               # Helper functions
+│       ├── task_2/                  # Task 2 scripts
+│       ├── task_3/                  # Task 3 scripts
+│       ├── task_4/                  # Task 4 scripts
+│       ├── task_5/                  # Task 5 scripts
+│       ├── task_6/                  # Task 6 scripts
+│       └── task_7/                  # Task 7 scripts
 │
 ├── 03_report/
-│   ├── graphs/               # Figures and HTML outputs for the report
-│   ├── *.pdf                 # Final written report
-│   └── ...
+│   ├── graphs/                      # Figures and exported plots
+│   │
+│   ├── task_*/
+│   │   ├── optional_outputs
+│   │   ├── task*_ai_summary.json
+│   │   └── task*_human_summary.md
 │
 ├── assets/
-│   ├── config/               # NGINX configuration
-│   ├── shiny/                # Shiny application
-│   ├── logs/                 # Shiny logs
-│   └── site-content/         # Static HTML dashboard files
+│   ├── config/                      # NGINX configuration
+│   ├── shiny/                       # Shiny application
+│   ├── logs/                        # Shiny server logs
+│   └── site-content/               # Static HTML dashboard deployment
+│       └── sample_points.html
 │
-├── renv/                     # renv project environment
-├── renv.lock                 # Locked package versions
-├── docker-compose.yaml       # Docker Compose configuration
-├── Dockerfile                # Docker image for the Shiny app
+├── renv/                            # Reproducible R environment
+├── renv.lock                        # Locked package versions
+├── docker-compose.yaml             # Docker Compose configuration
+├── Dockerfile                      # Docker image for Shiny deployment
 └── README.md
 ```
 
@@ -66,15 +75,19 @@ install.packages("renv")
 renv::restore()
 ```
 
-This restores all required package versions automatically from `renv.lock`.
+All required package versions will be restored automatically from `renv.lock`.
+
+The scripts use project-root detection and were tested from a fresh R session to ensure reproducibility.
 
 ---
 
 ## Running the Analysis
 
-The scripts are organized by THAS task and can generally be executed independently.
+The scripts are organised by THAS task and can generally be executed independently.
 
-A recommended execution order is:
+A recommended execution order is shown below.
+
+---
 
 ### Task 2 – API Exploration
 
@@ -87,14 +100,14 @@ Run the scripts related to querying and exploring the AIS database.
 Generate AIS samples:
 
 ```r
-source("02_code/R/ais_dynamic_sample_points.R")
-source("02_code/R/ais_dynamic_sample_stratified.R")
+source("02_code/R/task_3/ais_dynamic_sample_points.R")
+source("02_code/R/task_3/ais_dynamic_sample_stratified.R")
 ```
 
 Outputs are saved to:
 
 ```text
-01_data/
+01_data/task_3/
 ```
 
 ---
@@ -104,8 +117,8 @@ Outputs are saved to:
 Generate leaflet dashboards and vessel path analyses:
 
 ```r
-source("02_code/R/sample_dashboard.R")
-source("02_code/R/ais_dynamic_individual_paths.R")
+source("02_code/R/task_4/sample_dashboard.R")
+source("02_code/R/task_4/ais_dynamic_individual_paths.R")
 ```
 
 Outputs are saved to:
@@ -116,36 +129,82 @@ Outputs are saved to:
 
 ---
 
-### Task 5 – Traffic Density
+### Task 5 – Traffic Density Analysis
 
-Run river and traffic density analyses:
+Run the river traffic-density analysis:
 
 ```r
-source("02_code/R/ais_traffic_density.R")
+source("02_code/R/task_5/task5_traffic_density.R")
 ```
+
+Outputs are saved to:
+
+```text
+01_data/task_5/
+03_report/task_5/
+03_report/graphs/
+```
+
+Task 5 generates:
+
+* German river geometries
+* River traffic-density calculations
+* Rhine traffic-density plots
+* Ship-type distributions
+* AI-readable and human-readable summaries
 
 ---
 
 ### Task 6 – Static Dashboard
 
-The static dashboard is served via **NGINX** and Docker.
+Generate the static HTML dashboard:
 
-Accessible via:
+```r
+source("02_code/R/task_6/sample_html_dashboard.R")
+```
+
+Outputs are saved to:
 
 ```text
-http://193.197.229.211/sample_points.html
+03_report/task_6/
+assets/site-content/
+```
+
+The deployed dashboard is accessible via:
+
+```text
+http://193.197.229.211:7080/sample_points.html
 ```
 
 ---
 
-### Task 7 – Shiny Application
+### Task 7 – Shiny Application Preparation
 
-The interactive AIS dashboard is deployed using **Shiny Server + Docker + NGINX reverse proxy**.
+Prepare the traffic-density dataset for the Shiny app:
 
-Accessible via:
+```r
+source("02_code/R/task_7/task7_prepare_shiny_data.R")
+```
+
+Outputs are saved to:
 
 ```text
-http://193.197.229.211/ais_app
+01_data/task_7/
+03_report/task_7/
+```
+
+The generated CSV is used by the Shiny application to avoid expensive API requests during user interaction.
+
+---
+
+## Shiny Application
+
+The interactive AIS dashboard is deployed using **Shiny Server**, **Docker**, and **NGINX reverse proxy**.
+
+Access:
+
+```text
+http://193.197.229.211:7080/ais_app
 ```
 
 ---
@@ -186,20 +245,6 @@ The following software is required:
 
 ---
 
-## Data Source
-
-The analysis uses **Automatic Identification System (AIS)** data provided through the AIDAHO infrastructure.
-
-Data access is performed through the **PostgREST API** endpoint:
-
-```text
-https://aidaho-edu.uni-hohenheim.de/aisdb/
-```
-
-Queries are restricted to filtered subsets to avoid unnecessary load on the shared database infrastructure.
-
----
-
 ## AI Usage Statement
 
 Generative AI tools (e.g., ChatGPT) were used for:
@@ -218,7 +263,7 @@ All generated outputs were critically reviewed, adapted, tested, and validated b
 
 * All scripts were tested from a fresh R session before submission.
 * Random processes use fixed seeds where necessary to ensure reproducibility.
-* Generated report figures are additionally stored in:
+* Generated figures are stored in:
 
 ```text
 03_report/graphs/
