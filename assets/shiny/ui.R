@@ -235,7 +235,7 @@ ui <- tagList(
       div(
         class = "control-card",
         h2(class = "control-title", "Filters"),
-        div(class = "control-subtitle", "The plot updates only after pressing the refresh button, as required for Task 7."),
+        div(class = "control-subtitle", "Explore vessel traffic patterns by selecting a river and vessel categories. Update the visualization to analyze traffic density."),
         selectInput(
           inputId = "river",
           label = "River",
@@ -256,7 +256,7 @@ ui <- tagList(
           class = "btn-primary",
           width = "100%"
         ),
-        div(class = "hint-box", "The app reads a prepared CSV file and does not send expensive API requests during interaction.")
+        div(class = "hint-box", "Optimized for responsiveness using preprocessed traffic data.")
       ),
       div(
         class = "plot-card",
