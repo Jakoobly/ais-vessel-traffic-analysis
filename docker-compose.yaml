@@ -18,7 +18,7 @@ services:
         restart: unless-stopped
         volumes:
             - ./assets/shiny:/srv/shiny-server:rw
-            - ./01_data:/srv/shiny-server/data:ro
+            - ./01_data/task_7:/srv/shiny-server/data:ro
             - ./assets/logs:/var/log/shiny-server:rw
         environment:
             # not strictly required—Shiny server listens on 3838 by default

@@ -1,7 +1,7 @@
 # Helper functions for THAS Task 4: Vessel Behaviour
 # These functions are sourced by:
-# - 02_code/R/sample_dashboard.R
-# - 02_code/R/ais_dynamic_individual_paths.R
+# - 02_code/R/task_4/sample_dashboard.R
+# - 02_code/R/task_4/ais_dynamic_individual_paths.R
 #
 # Design notes:
 # - Dynamic AIS queries are always filtered by MMSI and/or time window.

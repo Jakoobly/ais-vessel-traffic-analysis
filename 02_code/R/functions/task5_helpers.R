@@ -3,9 +3,19 @@
 # Helpers are intentionally small and explicit. They keep the main script tidy,
 # reduce repeated code, and make API and geometry steps easier to debug.
 
-create_project_dirs <- function(root = here::here()) {
-  dirs <- file.path(root, c("01_data", "03_report", "03_report/graphs"))
-  purrr::walk(dirs, dir.create, recursive = TRUE, showWarnings = FALSE)
+create_project_dirs <- function(root = getwd()) {
+  dirs <- file.path(
+    root,
+    c("01_data", "03_report", "03_report/graphs")
+  )
+  
+  purrr::walk(
+    dirs,
+    dir.create,
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+  
   invisible(dirs)
 }
 

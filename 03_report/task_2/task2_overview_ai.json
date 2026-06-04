@@ -1,0 +1,579 @@
+{
+  "metadata": {
+    "created_at": "2026-06-04 14:17:40.981417",
+    "base_url": "https://aidaho-edu.uni-hohenheim.de/aisdb",
+    "root_dir": "C:/Users/Zippe/projects/ds-projects/IDS/AIDAHO_IDS_THAS_2026",
+    "data_dir": "C:/Users/Zippe/projects/ds-projects/IDS/AIDAHO_IDS_THAS_2026/01_data/task_2",
+    "out_dir": "C:/Users/Zippe/projects/ds-projects/IDS/AIDAHO_IDS_THAS_2026/03_report/task_2"
+  },
+  "implementation_decisions": {
+    "aggregations": "PostgREST aggregations were used because the server now supports grouped summaries efficiently, for example select=ship_type,n:count(). This avoids unnecessary local grouping and improves reproducibility.",
+    "dynamic_table_strategy": "The very large ais_dynamic table was never downloaded completely. Only filtered time intervals, grouped aggregate queries, and HEAD counts were used to avoid excessive data transfer.",
+    "count_strategy": "Exact HEAD counts were used for smaller tables such as ais_static. Planned/approximate counts were used for very large tables such as ais_dynamic and ais_germany for performance reasons.",
+    "distinct_vessels_logic": "ais_static contains one row per MMSI. Therefore, the exact row count of ais_static equals the number of distinct vessels.",
+    "data_quality_note": "Some metadata fields contain implausible placeholder or outlier values, for example placeholder text such as @@@@@ or unusually large IMO values. These are treated as source-data quality issues and do not materially affect the task results."
+  },
+  "task2_2_available_resources": ["ais_dynamic", "ais_dynamic_daily_counts", "ais_dynamic_daily_counts_mat", "ais_germany", "ais_static", "geography_columns", "geometry_columns", "germany_h3", "ingested_files"],
+  "task2_3": {
+    "row_counts": [
+      {
+        "table": "ais_static",
+        "count_method": "exact HEAD count",
+        "n_rows": 228427
+      },
+      {
+        "table": "ais_dynamic",
+        "count_method": "planned / approximate HEAD count",
+        "n_rows": 826793024
+      },
+      {
+        "table": "ais_germany",
+        "count_method": "planned / approximate HEAD count",
+        "n_rows": 389947776
+      }
+    ],
+    "distinct_vessels": [
+      {
+        "source": "ais_static",
+        "logic": "ais_static contains one row per MMSI; therefore the exact HEAD row count is used as the number of distinct vessels",
+        "distinct_mmsi": 228427
+      }
+    ],
+    "top_ship_types": [
+      {
+        "ship_type": "Other",
+        "n": 57974
+      },
+      {
+        "ship_type": "Cargo",
+        "n": 51781
+      },
+      {
+        "ship_type": "Fishing Vessel",
+        "n": 34736
+      },
+      {
+        "ship_type": "Tanker",
+        "n": 16496
+      },
+      {
+        "ship_type": "Tug",
+        "n": 13257
+      },
+      {
+        "ship_type": "Pleasure Craft",
+        "n": 9014
+      },
+      {
+        "ship_type": "Special Craft",
+        "n": 7624
+      },
+      {
+        "ship_type": "Passenger Ship",
+        "n": 7147
+      },
+      {
+        "ship_type": "Sailing Vessel",
+        "n": 5164
+      },
+      {
+        "ship_type": "High-Speed Craft",
+        "n": 1227
+      },
+      {
+        "ship_type": "Search and Rescue",
+        "n": 1201
+      },
+      {
+        "ship_type": "Wing In Ground",
+        "n": 644
+      },
+      {
+        "ship_type": "Reserved",
+        "n": 320
+      }
+    ],
+    "flags": [
+      {
+        "flag": "CN",
+        "n": 67214
+      },
+      {
+        "flag": "US",
+        "n": 13771
+      },
+      {
+        "flag": "PA",
+        "n": 8024
+      },
+      {
+        "flag": "NL",
+        "n": 7635
+      },
+      {
+        "flag": "NO",
+        "n": 7303
+      },
+      {
+        "flag": "ID",
+        "n": 6538
+      },
+      {
+        "flag": "VN",
+        "n": 6308
+      },
+      {
+        "flag": "LR",
+        "n": 5629
+      },
+      {
+        "flag": "MH",
+        "n": 4991
+      },
+      {
+        "flag": "KR",
+        "n": 4903
+      },
+      {
+        "flag": "JP",
+        "n": 4810
+      },
+      {
+        "flag": "GB",
+        "n": 4418
+      },
+      {
+        "flag": "SG",
+        "n": 4161
+      },
+      {
+        "flag": "DE",
+        "n": 4098
+      },
+      {
+        "flag": "MT",
+        "n": 3056
+      },
+      {
+        "flag": "AU",
+        "n": 3055
+      },
+      {
+        "flag": "HK",
+        "n": 2800
+      },
+      {
+        "flag": "RU",
+        "n": 2595
+      },
+      {
+        "flag": "ES",
+        "n": 2574
+      },
+      {
+        "flag": "DK",
+        "n": 2560
+      },
+      {
+        "flag": "FR",
+        "n": 2537
+      },
+      {
+        "flag": "CA",
+        "n": 2334
+      },
+      {
+        "flag": "IN",
+        "n": 2272
+      },
+      {
+        "flag": "TR",
+        "n": 2200
+      },
+      {
+        "flag": "IT",
+        "n": 1964
+      },
+      {
+        "flag": "TW",
+        "n": 1928
+      },
+      {
+        "flag": "CY",
+        "n": 1831
+      },
+      {
+        "flag": "BR",
+        "n": 1818
+      },
+      {
+        "flag": "SA",
+        "n": 1607
+      },
+      {
+        "flag": "PT",
+        "n": 1595
+      }
+    ],
+    "n_distinct_flags": 229,
+    "most_common_flag": [
+      {
+        "flag": "CN",
+        "n": 67214
+      }
+    ],
+    "ais_static_column_overview": [
+      {
+        "column": "mmsi",
+        "guessed_r_type": "integer",
+        "n_non_missing": 228427,
+        "example_values": "355289000, 367168640, 308621000, 229630000, 244660429"
+      },
+      {
+        "column": "imo",
+        "guessed_r_type": "integer",
+        "n_non_missing": 121121,
+        "example_values": "8918978, 9243162, 9169744, 9365960, 0"
+      },
+      {
+        "column": "name",
+        "guessed_r_type": "character",
+        "n_non_missing": 214784,
+        "example_values": "MSC SUEZ, CHARLESTON EXPRESS, GSP ALTAIR, X-PRESS MULHACEN, RS ALINDA@@@@@@@@@@@"
+      },
+      {
+        "column": "call_sign",
+        "guessed_r_type": "character",
+        "n_non_missing": 184208,
+        "example_values": "HPMS, WDD6126, C6PW6, 9HA3465, PH4782@"
+      },
+      {
+        "column": "flag",
+        "guessed_r_type": "character",
+        "n_non_missing": 228405,
+        "example_values": "PA, US, BS, MT, NL"
+      },
+      {
+        "column": "draught",
+        "guessed_r_type": "numeric",
+        "n_non_missing": 121121,
+        "example_values": "8.7, 10, 5, 7, 0"
+      },
+      {
+        "column": "ship_type_code",
+        "guessed_r_type": "integer",
+        "n_non_missing": 216262,
+        "example_values": "74, 70, 72, 79, 75"
+      },
+      {
+        "column": "ship_type",
+        "guessed_r_type": "character",
+        "n_non_missing": 206585,
+        "example_values": "Cargo, Passenger Ship, Other, Tanker, Wing In Ground"
+      },
+      {
+        "column": "length",
+        "guessed_r_type": "integer",
+        "n_non_missing": 216537,
+        "example_values": "237, 243, 83, 142, 86"
+      },
+      {
+        "column": "width",
+        "guessed_r_type": "integer",
+        "n_non_missing": 216537,
+        "example_values": "32, 19, 20, 8, 29"
+      },
+      {
+        "column": "eta",
+        "guessed_r_type": "character",
+        "n_non_missing": 95439,
+        "example_values": "2024-01-23T13:00:00+00:00, 2021-05-06T14:00:00+00:00, 2022-03-09T01:00:00+00:00, 2024-01-23T14:00:00+00:00, 2024-01-25T20:00:00+00:00"
+      },
+      {
+        "column": "destination",
+        "guessed_r_type": "character",
+        "n_non_missing": 119123,
+        "example_values": "CISPY, GBLGP, ANA RIG, NLRTM, ROTTERDAM BOTLEK@@@@"
+      },
+      {
+        "column": "static_updated_at",
+        "guessed_r_type": "character",
+        "n_non_missing": 203288,
+        "example_values": "2024-01-24T23:28:44+00:00, 2021-05-04T18:40:39+00:00, 2022-03-08T19:10:18+00:00, 2024-01-24T23:51:50+00:00, 2024-01-24T23:55:00+00:00"
+      }
+    ],
+    "ais_static_numeric_summary": [
+      {
+        "column": "mmsi",
+        "n_non_missing": 228427,
+        "min": 2010002,
+        "max": 995093791,
+        "avg": 387793156.8418
+      },
+      {
+        "column": "imo",
+        "n_non_missing": 121121,
+        "min": 0,
+        "max": 977392300,
+        "avg": 5416987.437
+      },
+      {
+        "column": "draught",
+        "n_non_missing": 121121,
+        "min": 0,
+        "max": 25.5,
+        "avg": 4.7158
+      },
+      {
+        "column": "ship_type_code",
+        "n_non_missing": 216262,
+        "min": 0,
+        "max": 255,
+        "avg": 45.1552
+      },
+      {
+        "column": "length",
+        "n_non_missing": 216537,
+        "min": 0,
+        "max": 1022,
+        "avg": 63.5805
+      },
+      {
+        "column": "width",
+        "n_non_missing": 216537,
+        "min": 0,
+        "max": 126,
+        "avg": 11.5478
+      }
+    ],
+    "ais_static_categorical_top_values": [
+      {
+        "column": "name",
+        "value": "@@@@@@@@@@@@@@@@@@@@",
+        "n": 666
+      },
+      {
+        "column": "name",
+        "value": "@@@@@@@@@@@@@@@@@@@",
+        "n": 112
+      },
+      {
+        "column": "name",
+        "value": "SH",
+        "n": 71
+      },
+      {
+        "column": "name",
+        "value": "0@@@@@@@@@@@@@@@@@@@",
+        "n": 47
+      },
+      {
+        "column": "name",
+        "value": "ORION",
+        "n": 33
+      },
+      {
+        "column": "call_sign",
+        "value": "@@@@@@@",
+        "n": 25653
+      },
+      {
+        "column": "call_sign",
+        "value": "0000000",
+        "n": 7492
+      },
+      {
+        "column": "call_sign",
+        "value": "0@@@@@@",
+        "n": 3205
+      },
+      {
+        "column": "call_sign",
+        "value": "1234567",
+        "n": 1500
+      },
+      {
+        "column": "call_sign",
+        "value": "YYYY@@@",
+        "n": 755
+      },
+      {
+        "column": "flag",
+        "value": "CN",
+        "n": 67214
+      },
+      {
+        "column": "flag",
+        "value": "US",
+        "n": 13771
+      },
+      {
+        "column": "flag",
+        "value": "PA",
+        "n": 8024
+      },
+      {
+        "column": "flag",
+        "value": "NL",
+        "n": 7635
+      },
+      {
+        "column": "flag",
+        "value": "NO",
+        "n": 7303
+      },
+      {
+        "column": "ship_type",
+        "value": "Other",
+        "n": 57974
+      },
+      {
+        "column": "ship_type",
+        "value": "Cargo",
+        "n": 51781
+      },
+      {
+        "column": "ship_type",
+        "value": "Fishing Vessel",
+        "n": 34736
+      },
+      {
+        "column": "ship_type",
+        "value": "Tanker",
+        "n": 16496
+      },
+      {
+        "column": "ship_type",
+        "value": "Tug",
+        "n": 13257
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-01T00:00:00+00:00",
+        "n": 1833
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-01T01:01:00+00:00",
+        "n": 1119
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-25T08:00:00+00:00",
+        "n": 497
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-25T12:00:00+00:00",
+        "n": 446
+      },
+      {
+        "column": "eta",
+        "value": "2024-01-25T06:00:00+00:00",
+        "n": 399
+      },
+      {
+        "column": "destination",
+        "value": "@@@@@@@@@@@@@@@@@@@@",
+        "n": 17135
+      },
+      {
+        "column": "destination",
+        "value": "0@@@@@@@@@@@@@@@@@@@",
+        "n": 692
+      },
+      {
+        "column": "destination",
+        "value": "SHANGHAI@@@@@@@@@@@@",
+        "n": 593
+      },
+      {
+        "column": "destination",
+        "value": "ZHOUSHAN",
+        "n": 459
+      },
+      {
+        "column": "destination",
+        "value": "@",
+        "n": 401
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:49:28+00:00",
+        "n": 75
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:49:36+00:00",
+        "n": 73
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:46:41+00:00",
+        "n": 72
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:43:56+00:00",
+        "n": 70
+      },
+      {
+        "column": "static_updated_at",
+        "value": "2024-01-24T23:50:18+00:00",
+        "n": 70
+      }
+    ]
+  },
+  "task2_4": {
+    "query_logic": {
+      "benelux": "PostgREST HEAD count on ais_static with flag=in.(Belgium,Netherlands,Luxembourg,BE,NL,LU)",
+      "german_cargo": "PostgREST HEAD count on ais_static with German flag and ship_type ilike *cargo*; length=gt.150 for long cargo ships",
+      "express": "PostgREST HEAD count on ais_static with name ilike *EXPRESS*",
+      "first_5_minutes_2022": "ais_dynamic HEAD count filtered to 2022-01-01 00:00:00 <= msg_timestamp < 00:05:00 UTC; distinct vessels via grouped aggregate select=mmsi,n:count()",
+      "fast_vessels": "ais_dynamic grouped aggregate by mmsi for 2021-05-04 14:00-14:30 UTC with speed > 12; cargo status joined from ais_static",
+      "limit": "PostgREST parameter limit=n returns at most n records"
+    },
+    "answers": {
+      "benelux_ships": 9476,
+      "german_cargo_ships": 291,
+      "german_cargo_longer_150m": 76,
+      "express_name_vessels": 572,
+      "dynamic_records_first_5_minutes_2022": 1506,
+      "distinct_vessels_first_5_minutes_2022": 1100,
+      "vessels_faster_than_12_knots": 76,
+      "cargo_vessels_faster_than_12_knots": 31,
+      "limit_example": [
+        {
+          "mmsi": 355289000,
+          "name": "MSC SUEZ",
+          "flag": "PA",
+          "ship_type": "Cargo"
+        },
+        {
+          "mmsi": 367168640,
+          "name": "CHARLESTON EXPRESS",
+          "flag": "US",
+          "ship_type": null
+        },
+        {
+          "mmsi": 308621000,
+          "name": "GSP ALTAIR",
+          "flag": "BS",
+          "ship_type": null
+        },
+        {
+          "mmsi": 229630000,
+          "name": "X-PRESS MULHACEN",
+          "flag": "MT",
+          "ship_type": "Cargo"
+        },
+        {
+          "mmsi": 244660429,
+          "name": "RS ALINDA@@@@@@@@@@@",
+          "flag": "NL",
+          "ship_type": "Cargo"
+        }
+      ]
+    }
+  }
+}

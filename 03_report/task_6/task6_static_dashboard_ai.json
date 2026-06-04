@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "created_at": "2026-06-04 16:45:46.934602",
+    "root_dir": "C:/Users/Zippe/projects/ds-projects/IDS/AIDAHO_IDS_THAS_2026",
+    "source_file": "01_data/task_3/sample_intervals.csv",
+    "n_points": 9361
+  },
+  "outputs": {
+    "nginx_document_root_file": "assets/site-content/sample_points.html",
+    "report_copy": "03_report/task_6/sample_points.html",
+    "graph_copy": "03_report/graphs/sample_points.html",
+    "ai_summary": "03_report/task_6/task6_static_dashboard_ai.json",
+    "human_summary": "03_report/task_6/task6_static_dashboard_human.md",
+    "expected_local_url": "http://localhost/sample_points.html",
+    "expected_deployed_url": "https://<your-server>/sample_points.html"
+  },
+  "implementation_decisions": {
+    "input_data": "The dashboard uses the Task 3.2 interval sample from 01_data/task_3/sample_intervals.csv. If this file is unavailable, a fallback sample.csv is used only as a backup.",
+    "docker_nginx": "The self-contained HTML file is written to assets/site-content/sample_points.html because this folder is mounted into the NGINX document root by docker-compose.yaml.",
+    "visualisation": "The leaflet map reuses the Task 4 helper logic. Vessel speed is represented by a capped colour scale and marker clustering is used to keep the dashboard responsive."
+  }
+}

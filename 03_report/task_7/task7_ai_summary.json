@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "created_at": "2026-06-04 17:32:44.066512",
+    "root_dir": "C:/Users/Zippe/projects/ds-projects/IDS/AIDAHO_IDS_THAS_2026",
+    "input_points": "01_data/task_5/task5_ais_germany_2022_04_23_classified.csv",
+    "input_rivers": "01_data/task_5/task5_german_rivers.rds",
+    "output_file": "01_data/task_7/task7_shiny_traffic_density.csv",
+    "human_summary": "03_report/task_7/task7_prepare_shiny_data_summary.md",
+    "ai_summary": "03_report/task_7/task7_ai_summary.json"
+  },
+  "preprocessing_settings": {
+    "bin_width_km": 10,
+    "crs_distance_calculation": 3035,
+    "method": "Distances are calculated along Natural Earth river centre lines and aggregated into 10 km bins.",
+    "river_selection": "Only AIS points classified as on selected German rivers in Task 5 are included.",
+    "ship_type_handling": "Missing or empty ship_type values are replaced with 'Unknown'."
+  },
+  "output_statistics": {
+    "rows_written": 415,
+    "rivers_included": 7,
+    "ship_types_included": 7,
+    "river_names": ["Danube", "Elbe", "Ems", "Main", "Moselle", "Rhine", "Weser"],
+    "ship_types": ["Cargo", "Other", "Passenger Ship", "Special Craft", "Tanker", "Unknown", "Wing In Ground"]
+  }
+}
