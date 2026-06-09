@@ -204,7 +204,7 @@ The interactive AIS dashboard is deployed using **Shiny Server**, **Docker**, an
 Access:
 
 ```text
-http://193.197.229.211:7080/ais_app
+http://193.197.229.211:7080/ais_app/
 ```
 
 ---
