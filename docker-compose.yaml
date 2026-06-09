@@ -14,7 +14,7 @@ services:
             context: .
             dockerfile: Dockerfile
         image: aidaho-edu.uni-hohenheim.de/jbleher/shiny_thas2025:0.1
-        container_name: ais_shiny
+        container_name: ais_shiny_team40
         restart: unless-stopped
         volumes:
             - ./assets/shiny:/srv/shiny-server:rw
