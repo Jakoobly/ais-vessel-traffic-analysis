@@ -219,3 +219,11 @@ All generated outputs were critically reviewed, adapted, tested, and validated b
 * All scripts were tested before submission.
 * Random sampling procedures use fixed seeds for reproducibility where applicable.
 * The repository follows the folder structure required by the THAS guidelines.
+
+## Demo
+
+Short demonstration of the deployed dashboard and Shiny application.
+
+<p align="center">
+  <img src="00_docs/assets/demo.gif" width="850">
+</p>
