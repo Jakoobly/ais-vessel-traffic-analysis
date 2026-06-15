@@ -225,5 +225,5 @@ All generated outputs were critically reviewed, adapted, tested, and validated b
 Short demonstration of the deployed dashboard and Shiny application.
 
 <p align="center">
-  <img src="00_docs/assets/demo.gif" width="850">
+  <img src="00_docs/Assets/shiny_demo.gif" width="850">
 </p>
