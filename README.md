@@ -21,6 +21,8 @@ This repository contains all code, generated datasets, figures, reports, helper 
 AIDAHO_IDS_THAS_2026/
 │
 ├── 00_docs/                         # Assignment sheets and supporting documentation
+│   ├── assets/                      # Visual assets and supplementary materials
+│   └── references/                  # Scientific papers and reference materials
 │
 ├── 01_data/                         # Generated datasets and intermediate outputs
 │   └── task_*/
@@ -228,5 +230,5 @@ All generated outputs were critically reviewed, adapted, tested, and validated b
 Short demonstration of the deployed dashboard and Shiny application.
 
 <p align="center">
-  <img src="00_docs/Assets/shiny_demo.gif" width="850">
+  <img src="00_docs/assets/shiny_demo.gif" width="850">
 </p>
