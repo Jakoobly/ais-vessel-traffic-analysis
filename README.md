@@ -135,6 +135,7 @@ Generate the static HTML dashboard:
 source("02_code/R/task_6/sample_html_dashboard.R")
 ```
 
+Static dashboard URL:
 
 ```text
 http://193.197.229.211:7080/sample_points.html
@@ -155,7 +156,7 @@ Shiny application URL:
 ```text
 http://193.197.229.211:7080/ais_app/
 ```
-[![Project Demo](https://img.shields.io/badge/Project-Demo-2c3e50?style=for-the-badge)](#demo) [![Shiny App](https://img.shields.io/badge/Interactive-Shiny%20App-27ae60?style=for-the-badge)](http://193.197.229.211:7080/ais_app/) Static dashboard URL: [![Deployment](https://img.shields.io/badge/Deployment-Live-f39c12?style=for-the-badge)](http://193.197.229.211:7080/)
+[![Project Demo](https://img.shields.io/badge/Project-Demo-2c3e50?style=for-the-badge)](#demo) [![Shiny App](https://img.shields.io/badge/Interactive-Shiny%20App-27ae60?style=for-the-badge)](http://193.197.229.211:7080/ais_app/) [![Deployment](https://img.shields.io/badge/Deployment-Live-f39c12?style=for-the-badge)](http://193.197.229.211:7080/)
 
 ---
 
