@@ -85,12 +85,12 @@ The following software is required:
 
 ## Recommended Execution Order
 
-The scripts are organized according to the THAS tasks and can generally be executed independently. However, the following order is recommended for full reproducibility.
+The scripts are organized according to the THAS tasks. While most scripts can be executed independently, some tasks depend on outputs generated in previous steps. Therefore, the following execution order is recommended to ensure full reproducibility of all results.
 
 ### Task 2 – API Exploration
 
 ```r
-source("task2_overview.R")
+source("02_code/R/task_2/task2_overview.R")
 ```
 
 ---
@@ -164,7 +164,7 @@ http://193.197.229.211:7080/ais_app/
 
 ## Docker Deployment
 
-This repository uses **Docker Compose** for deployment.
+The deployment requires **Docker** and **Docker Compose** to be installed and configured.
 
 ### Start containers
 
