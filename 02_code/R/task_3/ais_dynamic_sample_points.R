@@ -422,12 +422,13 @@ ggsave(
 
 speed_plot <- plot_data |>
   filter(!is.na(speed), speed >= 0, speed <= 40) |>
-  ggplot(aes(x = speed, fill = sample)) +
-  geom_histogram(position = "identity", alpha = 0.45, bins = 40) +
+  ggplot(aes(x = speed, color = sample, fill = sample)) +
+  geom_density(alpha = 0.25, linewidth = 1, adjust = 1.2) +
   labs(
     title = "Speed distribution by sample",
     x = "Speed over ground in knots",
-    y = "Number of observations",
+    y = "Density",
+    color = "Sample",
     fill = "Sample"
   ) +
   theme_minimal()

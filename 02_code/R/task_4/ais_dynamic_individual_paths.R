@@ -15,6 +15,8 @@
 library(tidyverse)
 library(readr)
 library(jsonlite)
+library(leaflet)
+library(htmlwidgets)
 
 # -------------------------------------------------------------------------
 # Project paths
@@ -172,11 +174,80 @@ lock_events_211430830 <- detect_ship_locks(
 write_csv(lock_events_211430830, lock_events_csv)
 
 if (nrow(mmsi_211430830) > 0) {
-  lock_map <- make_lock_map(
-    mmsi_211430830,
-    lock_events_211430830,
-    "Task 4.2: MMSI 211430830 route and detected lock passages"
+  
+  lock_map_data <- mmsi_211430830 %>%
+    filter(!is.na(latitude), !is.na(longitude)) %>%
+    arrange(msg_timestamp) %>%
+    mutate(
+      speed_plot = if_else(is.na(speed), 0, speed),
+      popup_text = paste0(
+        "<b>Timestamp:</b> ", msg_timestamp, "<br>",
+        "<b>Speed:</b> ", round(speed, 2), " kn<br>",
+        "<b>Latitude:</b> ", round(latitude, 5), "<br>",
+        "<b>Longitude:</b> ", round(longitude, 5)
+      )
+    )
+  
+  speed_pal <- colorNumeric(
+    palette = "YlOrRd",
+    domain = lock_map_data$speed_plot,
+    na.color = "grey70"
   )
+  
+  lock_map <- leaflet(lock_map_data, options = leafletOptions(preferCanvas = TRUE)) %>%
+    addProviderTiles(providers$CartoDB.Positron) %>%
+    
+    addPolylines(
+      lng = ~longitude,
+      lat = ~latitude,
+      color = "grey40",
+      weight = 2,
+      opacity = 0.6,
+      group = "Vessel route"
+    ) %>%
+    
+    addCircleMarkers(
+      lng = ~longitude,
+      lat = ~latitude,
+      radius = 3,
+      stroke = FALSE,
+      fillOpacity = 0.7,
+      color = ~speed_pal(speed_plot),
+      popup = ~popup_text,
+      group = "AIS speed points"
+    ) %>%
+    
+    addCircleMarkers(
+      data = lock_events_211430830,
+      lng = ~longitude,
+      lat = ~latitude,
+      radius = 8,
+      color = "black",
+      weight = 2,
+      fillColor = "cyan",
+      fillOpacity = 1,
+      popup = ~paste0(
+        "<b>Detected lock event</b><br>",
+        "<b>Start:</b> ", start_time, "<br>",
+        "<b>End:</b> ", end_time, "<br>",
+        "<b>Duration:</b> ", round(duration_minutes, 1), " min<br>",
+        "<b>Observations:</b> ", n_observations
+      ),
+      group = "Detected locks"
+    ) %>%
+    
+    addLegend(
+      position = "bottomright",
+      pal = speed_pal,
+      values = ~speed_plot,
+      title = "Speed (kn)",
+      opacity = 1
+    ) %>%
+    
+    addLayersControl(
+      overlayGroups = c("Vessel route", "AIS speed points", "Detected locks"),
+      options = layersControlOptions(collapsed = FALSE)
+    )
   
   save_leaflet_map(lock_map, lock_map_html)
 }
