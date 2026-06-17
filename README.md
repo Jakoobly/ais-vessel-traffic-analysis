@@ -71,7 +71,7 @@ All required package versions will automatically be restored from `renv.lock`.
 
 The code was tested from a **fresh R session** to ensure reproducibility.
 
-### DISCLAIMER
+##### DISCLAIMER
 
 Task 3 depends on live API queries to the remote AIS database. Although all local random sampling steps use fixed seeds, API requests with `limit` may not be fully reproducible unless a deterministic row order is enforced. Therefore, individual AIS observations are ordered by timestamp and MMSI before limiting the result. The generated samples and plots are included in the repository to document the exact outputs used in the report.
 
