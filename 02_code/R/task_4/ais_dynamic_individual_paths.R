@@ -130,11 +130,66 @@ write_csv(mmsi_563040400, mmsi_563040400_csv)
 summary_563040400 <- summarise_track(mmsi_563040400)
 
 if (nrow(mmsi_563040400) > 0) {
-  map_563040400 <- make_track_map(
-    mmsi_563040400,
-    "Task 4.2: Track of MMSI 563040400",
-    show_clusters = TRUE
+  
+  mmsi_563040400_map_data <- mmsi_563040400 %>%
+    filter(!is.na(latitude), !is.na(longitude)) %>%
+    arrange(msg_timestamp) %>%
+    mutate(
+      speed_plot = if_else(is.na(speed), 0, speed),
+      popup_text = paste0(
+        "<b>MMSI:</b> ", mmsi, "<br>",
+        "<b>Timestamp:</b> ", msg_timestamp, "<br>",
+        "<b>Speed:</b> ", round(speed, 2), " kn<br>",
+        "<b>Course:</b> ", round(course, 1), "°<br>",
+        "<b>Latitude:</b> ", round(latitude, 5), "<br>",
+        "<b>Longitude:</b> ", round(longitude, 5)
+      )
+    )
+  
+  speed_pal_563040400 <- colorNumeric(
+    palette = "YlOrRd",
+    domain = mmsi_563040400_map_data$speed_plot,
+    na.color = "grey70"
   )
+  
+  map_563040400 <- leaflet(
+    mmsi_563040400_map_data,
+    options = leafletOptions(preferCanvas = TRUE)
+  ) %>%
+    addProviderTiles(providers$CartoDB.Positron) %>%
+    
+    addPolylines(
+      lng = ~longitude,
+      lat = ~latitude,
+      color = "grey40",
+      weight = 2,
+      opacity = 0.6,
+      group = "Vessel route"
+    ) %>%
+    
+    addCircleMarkers(
+      lng = ~longitude,
+      lat = ~latitude,
+      radius = 3,
+      stroke = FALSE,
+      fillOpacity = 0.75,
+      color = ~speed_pal_563040400(speed_plot),
+      popup = ~popup_text,
+      group = "AIS speed points"
+    ) %>%
+    
+    addLegend(
+      position = "bottomright",
+      pal = speed_pal_563040400,
+      values = ~speed_plot,
+      title = "Speed (kn)",
+      opacity = 1
+    ) %>%
+    
+    addLayersControl(
+      overlayGroups = c("Vessel route", "AIS speed points"),
+      options = layersControlOptions(collapsed = FALSE)
+    )
   
   save_leaflet_map(map_563040400, map_563040400_html)
 }
