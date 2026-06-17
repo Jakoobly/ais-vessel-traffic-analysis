@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "created_at": "2026-06-17 18:14:26.947005",
+    "root_dir": "C:/Users/Zippe/projects/ds-projects/IDS/AIDAHO_IDS_THAS_2026",
+    "source_file": "01_data/task_3/sample_intervals.csv",
+    "speed_cap_for_visualisation_kn": 40
+  },
+  "implementation_decisions": {
+    "source_data": "Task 4.1 uses the interval sample created in Task 3.2. The script first looks for 01_data/task_3/sample_intervals.csv and only uses 01_data/sample.csv as a fallback.",
+    "output_structure": "Interactive HTML map outputs are stored in 03_report/graphs as required by the THAS guidelines. Task-specific summaries are stored in 03_report/task_4.",
+    "speed_visualisation": "Speed values above 40 knots are capped only for the colour scale to keep the map readable. Original speed values remain available in the popups.",
+    "clustering": "Marker clusters are used to keep the leaflet maps responsive. Cluster colours represent the number of points in the cluster, not vessel speed."
+  },
+  "full_sample": {
+    "n_rows": 9877,
+    "n_missing_speed_removed": 123,
+    "speed_min_kn": 0,
+    "speed_median_kn": 0,
+    "speed_mean_kn": 2.6989,
+    "speed_max_kn": 102.3,
+    "n_speed_above_cap": 66
+  },
+  "satellite_sample": {
+    "n_rows": 1713,
+    "share_of_full_sample": 0.1734
+  },
+  "outputs": {
+    "full_map": "03_report/graphs/sample_points_full.html",
+    "satellite_map": "03_report/graphs/sample_points_satellite.html",
+    "ai_summary": "03_report/task_4/task4_sample_dashboard_ai.json",
+    "human_summary": "03_report/task_4/task4_sample_dashboard_human.md"
+  }
+}
