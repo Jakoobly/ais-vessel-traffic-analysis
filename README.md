@@ -1,5 +1,17 @@
 # AIDAHO_IDS_THAS_2026
 
+---
+
+This repository represents the final submitted version of our 2026 Take Home Assignment for **Introduction to Data Science with R & RStudio** at the University of Hohenheim. The project was graded **1.0 (very good)** and has intentionally been preserved in its original submission state.
+
+The graded final report is included in the repository under `03_report/`.
+
+The project focused on analyzing and visualizing large-scale maritime AIS data using R, including sampling strategies, vessel behaviour analysis, H3-based traffic density analysis, interactive Leaflet visualizations, and a deployed Shiny application.
+
+Generative AI tools such as ChatGPT were used as development support for debugging, code generation and refactoring, documentation, and language refinement. All AI-assisted outputs were reviewed, adapted, tested, and validated by the authors.
+
+---
+
 Take Home Assignment (THAS) for the course **Introduction to Data Science with R & RStudio** at the **AIDAHO – AI & Data Science Certificate Hohenheim**, University of Hohenheim.
 
 This repository contains all code, generated datasets, figures, reports, helper functions, and deployment files required to reproduce the analyses and web applications developed for the THAS 2026 assignment.
@@ -8,10 +20,10 @@ This repository contains all code, generated datasets, figures, reports, helper 
 
 ## Team Members
 
-| Name           | Student ID |
-| -------------- | ---------- |
-| Jakob Zipperer | 1103276    |
-| Roque Hauser   | 1091043    |
+| Name           | 
+| -------------- | 
+| Jakob Zipperer | 
+| Roque Hauser   | 
 
 ---
 
