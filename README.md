@@ -1,7 +1,5 @@
 # AIDAHO_IDS_THAS_2026
 
----
-
 This repository represents the final submitted version of our 2026 Take Home Assignment for **Introduction to Data Science with R & RStudio** at the University of Hohenheim. The project was graded **1.0 (very good)** and has intentionally been preserved in its original submission state.
 
 The graded final report is included in the repository under `03_report/`.
