@@ -9,6 +9,7 @@ The project focused on analyzing and visualizing large-scale maritime AIS data u
 Generative AI tools such as ChatGPT were used as development support for debugging, code generation and refactoring, documentation, and language refinement. All AI-assisted outputs were reviewed, adapted, tested, and validated by the authors.
 
 ---
+---
 
 Take Home Assignment (THAS) for the course **Introduction to Data Science with R & RStudio** at the **AIDAHO – AI & Data Science Certificate Hohenheim**, University of Hohenheim.
 
